@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.38 1993/12/26 15:04:29 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.39 1993/12/26 22:22:12 vern Exp $ (LBL) */
 
 #include <stdio.h>
 #include <ctype.h>
@@ -852,6 +852,7 @@ void line_pinpoint PROTO(( char[], int ));
 /* Report a formatted syntax error. */
 extern void format_synerr PROTO((char [], char[]));
 extern void synerr PROTO((char []));	/* report a syntax error */
+extern void format_warn PROTO((char [], char[]));
 extern void warn PROTO((char []));	/* report a warning */
 extern int yyparse PROTO((void));	/* the YACC parser */
 
