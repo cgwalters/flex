@@ -26,10 +26,9 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.28 1993/12/01 11:58:18 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.29 1993/12/02 21:52:20 vern Exp $ (LBL) */
 
 #include <stdio.h>
-#include <string.h>
 #include <ctype.h>
 
 /* Always be prepared to generate an 8-bit scanner. */
@@ -608,7 +607,9 @@ void *reallocate_array PROTO((void*, int, int));
 void *yy_flex_alloc PROTO((int));
 void *yy_flex_realloc PROTO((void*, int));
 void yy_flex_free PROTO((void*));
-void *yy_flex_xmalloc PROTO((int));
+int yy_strcmp PROTO(( const char *s1, const char *s2 ));
+void yy_strcpy PROTO(( char *s1, const char *s2 ));
+int yy_strlen PROTO(( const char *s ));
 
 #define allocate_integer_array(size) \
 	(int *) allocate_array( size, sizeof( int ) )

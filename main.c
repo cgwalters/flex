@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.32 1993/11/30 13:00:58 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.33 1993/12/02 21:52:18 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -315,7 +315,7 @@ int exit_status;
 		if ( skelname )
 			fprintf( stderr, " -S%s", skelname );
 
-		if ( strcmp( prefix, "yy" ) )
+		if ( yy_strcmp( prefix, "yy" ) )
 			fprintf( stderr, " -P%s", prefix );
 
 		putc( '\n', stderr );
@@ -449,7 +449,7 @@ char **argv;
 	program_name = argv[0];
 
 	if ( program_name[0] != '\0' &&
-	     program_name[strlen( program_name ) - 1] == '+' )
+	     program_name[yy_strlen( program_name ) - 1] == '+' )
 		C_plus_plus = true;
 
 	/* read flags */
@@ -731,7 +731,7 @@ char **argv;
 	if ( skelname && (skelfile = fopen( skelname, "r" )) == NULL )
 		lerrsf( "can't open skeleton file %s", skelname );
 
-	if ( strcmp( prefix, "yy" ) )
+	if ( yy_strcmp( prefix, "yy" ) )
 		{
 #define GEN_PREFIX(name) printf( "#define yy%s %s%s\n", name, prefix, name );
 		GEN_PREFIX( "FlexLexer" );
@@ -854,10 +854,7 @@ void readin()
 	else
 		{
 		if ( yytext_is_array )
-			{
-			puts( "\n#include <string.h>\n" );
 			puts( "extern char yytext[];\n" );
-			}
 
 		else
 			{

@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/sym.c,v 2.9 1993/11/29 16:38:31 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/sym.c,v 2.10 1993/12/02 21:52:15 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -62,7 +62,7 @@ int table_size;
 
 	while ( sym_entry )
 		{
-		if ( ! strcmp( sym, sym_entry->name ) )
+		if ( ! yy_strcmp( sym, sym_entry->name ) )
 			{ /* entry already exists */
 			return -1;
 			}
@@ -141,7 +141,7 @@ int table_size;
 
 	while ( sym_entry )
 		{
-		if ( ! strcmp( sym, sym_entry->name ) )
+		if ( ! yy_strcmp( sym, sym_entry->name ) )
 			return sym_entry;
 		sym_entry = sym_entry->next;
 		}
