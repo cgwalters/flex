@@ -24,15 +24,7 @@
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-#ifndef lint
-
-static char copyright[] =
-    "@(#) Copyright (c) 1989 The Regents of the University of California.\n\
-     All rights reserved.\n";
-
-#endif
-
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 1.7 1989/05/24 11:45:36 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 1.8 1989/05/24 11:48:24 vern Exp $ (LBL) */
 
 #ifndef FILE
 #include <stdio.h>
