@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.57 1995/03/05 20:37:53 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.58 1995/03/05 21:35:02 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -298,6 +298,7 @@ void check_options()
 			GEN_PREFIX( "_scan_bytes" );
 			GEN_PREFIX( "_flex_debug" );
 			GEN_PREFIX( "_init_buffer" );
+			GEN_PREFIX( "_flush_buffer" );
 			GEN_PREFIX( "_load_buffer_state" );
 			GEN_PREFIX( "_switch_to_buffer" );
 			GEN_PREFIX( "in" );
