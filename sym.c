@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/sym.c,v 2.14 1993/12/17 10:04:01 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/sym.c,v 2.15 1993/12/26 15:02:46 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -214,7 +214,6 @@ void scextend()
 	scxclu = reallocate_integer_array( scxclu, current_max_scs );
 	sceof = reallocate_integer_array( sceof, current_max_scs );
 	scname = reallocate_char_ptr_array( scname, current_max_scs );
-	actvsc = reallocate_integer_array( actvsc, current_max_scs );
 	}
 
 
