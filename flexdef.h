@@ -24,7 +24,7 @@
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.4 1990/03/20 11:31:58 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.5 1990/03/20 14:32:52 vern Exp $ (LBL) */
 
 #ifndef FILE
 #include <stdio.h>
@@ -46,6 +46,10 @@
 #define DEFAULT_CSIZE 128
 #endif
 
+
+#ifdef USG
+#define SYS_V
+#endif
 
 #ifdef SYS_V
 #include <string.h>
