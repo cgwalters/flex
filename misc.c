@@ -31,7 +31,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/misc.c,v 2.1 1990/01/15 17:48:26 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/misc.c,v 2.2 1990/01/16 10:39:51 vern Exp $ (LBL)";
 
 #endif
 
@@ -430,7 +430,7 @@ flexfatal( msg )
 char msg[];
 
     {
-    fprintf( stderr, "%s: fatal internal error %s\n", program_name, msg );
+    fprintf( stderr, "%s: fatal internal error, %s\n", program_name, msg );
     flexend( 1 );
     }
 
