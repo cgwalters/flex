@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/gen.c,v 2.32 1993/12/07 11:10:49 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/gen.c,v 2.33 1993/12/09 13:58:09 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -1255,10 +1255,13 @@ void make_tables()
 			{
 			printf(
 			"\tif ( yy_current_buffer->is_interactive ) \\\n" );
+			printf( "\t\t{ \\\n" );
+			printf( "\t\tint c = getc( yyin ); \\\n" );
+			printf( "\t\tresult = c == EOF ? 0 : 1; \\\n" );
+			printf( "\t\tbuf[0] = (char) c; \\\n" );
+			printf( "\t\t} \\\n" );
 			printf(
-"\t\tresult = ((int) (buf[0] = getc( yyin ))) == EOF ? 0 : 1; \\\n" );
-			printf(
-"\telse if ( ((result = fread( (char *) buf, 1, max_size, yyin )) == 0)\\\n" );
+	"\telse if ( ((result = fread( buf, 1, max_size, yyin )) == 0) \\\n" );
 			printf( "\t\t  && ferror( yyin ) ) \\\n" );
 			printf(
 		"\t\tYY_FATAL_ERROR( \"input in flex scanner failed\" );\n" );
