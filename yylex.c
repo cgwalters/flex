@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/yylex.c,v 2.12 1994/12/06 21:07:33 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/yylex.c,v 2.13 1995/03/04 16:10:41 vern Exp $ */
 
 #include <ctype.h>
 #include "flexdef.h"
@@ -52,7 +52,7 @@ int yylex()
 
 		if ( sectnum == 1 )
 			{
-			synerr( "premature EOF" );
+			synerr( _( "premature EOF" ) );
 			sectnum = 2;
 			toktype = SECTEND;
 			}
@@ -201,12 +201,12 @@ int yylex()
 				break;
 
 			case 0:
-				fprintf( stderr, "End Marker\n" );
+				fprintf( stderr, _( "End Marker\n" ) );
 				break;
 
 			default:
 				fprintf( stderr,
-					"*Something Weird* - tok: %d val: %d\n",
+				_( "*Something Weird* - tok: %d val: %d\n" ),
 					toktype, yylval );
 				break;
 			}

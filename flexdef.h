@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.48 1995/01/09 21:02:03 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.49 1995/03/04 16:09:54 vern Exp $ (LBL) */
 
 #include <stdio.h>
 #include <ctype.h>
@@ -64,6 +64,11 @@
 #ifdef STDC_HEADERS
 #include <stdlib.h>
 #endif
+
+/* As an aid for the internationalization patch to flex, which
+ * is maintained outside this distribution for copyright reasons.
+ */
+#define _(String) (String)
 
 /* Always be prepared to generate an 8-bit scanner. */
 #define CSIZE 256
@@ -842,7 +847,7 @@ extern void lerrif PROTO((const char[], int));
 /* Report an error message formatted with one string argument. */
 extern void lerrsf PROTO((const char[], const char[]));
 
-/* Spit out a "# line" statement. */
+/* Spit out a "#line" statement. */
 extern void line_directive_out PROTO((FILE*, int));
 
 /* Mark the current position in the action array as the end of the section 1

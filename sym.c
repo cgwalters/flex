@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/sym.c,v 2.18 1995/01/05 22:04:21 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/sym.c,v 2.19 1995/03/04 16:11:04 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -75,7 +75,7 @@ int table_size;
 		flex_alloc( sizeof( struct hash_entry ) );
 
 	if ( new_entry == NULL )
-		flexfatal( "symbol table memory allocation failed" );
+		flexfatal( _( "symbol table memory allocation failed" ) );
 
 	if ( (successor = table[hash_val]) != 0 )
 		{
@@ -185,7 +185,7 @@ Char definition[];
 	if ( addsym( copy_string( name ),
 			(char *) copy_unsigned_string( definition ), 0,
 			ndtbl, NAME_TABLE_HASH_SIZE ) )
-		synerr( "name defined twice" );
+		synerr( _( "name defined twice" ) );
 	}
 
 
@@ -239,7 +239,8 @@ int xcluflg;
 
 	if ( addsym( scname[lastsc], (char *) 0, lastsc,
 			sctbl, START_COND_HASH_SIZE ) )
-		format_pinpoint_message( "start condition %s declared twice",
+		format_pinpoint_message(
+				_( "start condition %s declared twice" ),
 					str );
 
 	scset[lastsc] = mkstate( SYM_EPSILON );
