@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/gen.c,v 2.19 1993/09/16 20:32:08 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/gen.c,v 2.20 1993/09/21 20:45:18 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -1283,7 +1283,8 @@ void make_tables()
 		do_indent();
 		printf( "else\n" );
 		indent_up();
-		indent_puts( "fprintf( stderr, \"--EOF\\n\" );" );
+		indent_puts(
+	"fprintf( stderr, \"--EOF (start condition %d)\\n\", YY_START );" );
 		indent_down();
 
 		indent_puts( "}" );
