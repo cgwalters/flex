@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/nfa.c,v 2.10 1993/09/16 20:32:04 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/nfa.c,v 2.11 1993/09/21 20:42:09 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -58,7 +58,7 @@ int mach, accepting_number;
 		{
 		int astate = mkstate( SYM_EPSILON );
 		accptnum[astate] = accepting_number;
-		mach = link_machines( mach, astate );
+		(void) link_machines( mach, astate );
 		}
 	}
 
