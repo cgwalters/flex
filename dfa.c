@@ -31,7 +31,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/dfa.c,v 2.4 1990/03/20 11:30:35 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/dfa.c,v 2.5 1990/03/20 13:16:02 vern Exp $ (LBL)";
 
 #endif
 
@@ -176,7 +176,7 @@ int ds;
 
     bubble( rule_set, num_associated_rules );
 
-    fprintf( file, " associated rules:" );
+    fprintf( file, " associated rule line numbers:" );
 
     for ( i = 1; i <= num_associated_rules; ++i )
 	{
