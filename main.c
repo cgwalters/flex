@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.20 1993/10/02 13:37:14 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.21 1993/10/02 15:20:15 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -97,9 +97,9 @@ int num_input_files;
 char *program_name;
 
 #ifndef SHORT_FILE_NAMES
-static char *outfile_template = "lex.%s.c";
+static char *outfile_template = "lex.%s.%s";
 #else
-static char *outfile_template = "lex%s.c";
+static char *outfile_template = "lex%s.%s";
 #endif
 static char outfile_path[64];
 
@@ -643,8 +643,14 @@ char **argv;
 	if ( ! use_stdout )
 		{
 		FILE *prev_stdout;
+		char *suffix;
 
-		sprintf( outfile_path, outfile_template, prefix );
+		if ( C_plus_plus )
+			suffix = "cc";
+		else
+			suffix = "c";
+
+		sprintf( outfile_path, outfile_template, prefix, suffix );
 
 		prev_stdout = freopen( outfile_path, "w", stdout );
 
