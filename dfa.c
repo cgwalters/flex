@@ -28,7 +28,7 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/dfa.c,v 2.9 1993/04/14 22:41:45 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/dfa.c,v 2.10 1993/06/12 13:40:15 vern Exp $ (LBL)";
 #endif
 
 #include "flexdef.h"
@@ -1041,8 +1041,7 @@ int symlist[], duplist[];
 
 			if ( tch >= 0 )
 				{ /* character transition */
-				/* abs() needed for fake %t ec's */
-				int ec = abs( ecgroup[tch] );
+				int ec = ecgroup[tch];
 
 				mkechar( ec, dupfwd, duplist );
 				symlist[ec] = 1;
