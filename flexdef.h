@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.36 1993/12/17 10:04:28 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.37 1993/12/20 09:41:06 vern Exp $ (LBL) */
 
 #include <stdio.h>
 #include <ctype.h>
@@ -35,6 +35,10 @@
 #include <string.h>
 #else
 #include <strings.h>
+#endif
+
+#if __STDC__
+#include <stdlib.h>
 #endif
 
 /* Always be prepared to generate an 8-bit scanner. */
