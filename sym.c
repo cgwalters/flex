@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/sym.c,v 2.8 1993/09/16 20:32:03 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/sym.c,v 2.9 1993/11/29 16:38:31 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -163,8 +163,10 @@ int hash_size;
 	locstr = 0;
 
 	while ( str[locstr] )
-		hashval = ((hashval << 1) + (unsigned char) str[locstr++]) %
-			hash_size;
+		{
+		hashval = (hashval << 1) + (unsigned char) str[locstr++];
+		hashval %= hash_size;
+		}
 
 	return hashval;
 	}
