@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/misc.c,v 2.42 1995/01/09 12:11:14 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/misc.c,v 2.43 1995/01/09 12:54:33 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -391,7 +391,7 @@ int do_infile;
 	{
 	char directive[MAXLINE], filename[MAXLINE];
 	char *s1, *s2, *s3;
-	static char line_fmt[] = "# line %d \"%s\"\n";
+	static char line_fmt[] = "#line %d \"%s\"\n";
 
 	if ( ! gen_line_dirs )
 		return;
