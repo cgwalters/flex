@@ -31,7 +31,7 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/parse.y,v 2.9 1993/04/14 22:42:00 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/parse.y,v 2.10 1993/07/05 21:36:47 vern Exp $ (LBL)";
 #endif
 
 #include "flexdef.h"
@@ -604,19 +604,19 @@ fullccl		:  '[' ccl ']'
 
 ccl		:  ccl CHAR '-' CHAR
 			{
+			if ( caseins )
+				{
+				if ( $2 >= 'A' && $2 <= 'Z' )
+					$2 = clower( $2 );
+				if ( $4 >= 'A' && $4 <= 'Z' )
+					$4 = clower( $4 );
+				}
+
 			if ( $2 > $4 )
 				synerr( "negative range in character class" );
 
 			else
 				{
-				if ( caseins )
-					{
-					if ( $2 >= 'A' && $2 <= 'Z' )
-						$2 = clower( $2 );
-					if ( $4 >= 'A' && $4 <= 'Z' )
-						$4 = clower( $4 );
-					}
-
 				for ( i = $2; i <= $4; ++i )
 					ccladd( $1, i );
 
