@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/sym.c,v 2.13 1993/12/11 17:06:46 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/sym.c,v 2.14 1993/12/17 10:04:01 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -72,7 +72,7 @@ int table_size;
 
 	/* create new entry */
 	new_entry = (struct hash_entry *)
-		yy_flex_alloc( sizeof( struct hash_entry ) );
+		flex_alloc( sizeof( struct hash_entry ) );
 
 	if ( new_entry == NULL )
 		flexfatal( "symbol table memory allocation failed" );
