@@ -31,7 +31,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/gen.c,v 2.2 1990/01/15 17:58:49 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/gen.c,v 2.3 1990/01/16 11:17:36 vern Exp $ (LBL)";
 
 #endif
 
@@ -658,6 +658,14 @@ gentabs()
 	 * the indices that will go into the "yy_accept" array, and save the
 	 * indices in the dfaacc array
 	 */
+	int EOB_accepting_list[2];
+
+	/* set up accepting structures for the End Of Buffer state */
+	EOB_accepting_list[0] = 0;
+	EOB_accepting_list[1] = end_of_buffer_action;
+	accsiz[end_of_buffer_state] = 1;
+	dfaacc[end_of_buffer_state].dfaacc_set = EOB_accepting_list;
+
 	printf( C_short_decl, "yy_acclist", max( numas, 1 ) + 1 );
 
 	j = 1;	/* index into "yy_acclist" array */
