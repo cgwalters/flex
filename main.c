@@ -34,7 +34,7 @@ char copyright[] =
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/main.c,v 2.13 1993/06/12 13:43:31 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/main.c,v 2.14 1993/07/05 21:52:29 vern Exp $ (LBL)";
 #endif
 
 
@@ -751,15 +751,15 @@ char **argv;
 
 void readin()
 	{
-	skelout();
-
-	if ( ddebug )
-		puts( "#define FLEX_DEBUG" );
-
 	if ( csize == 256 )
 		puts( "typedef unsigned char YY_CHAR;" );
 	else
 		puts( "typedef char YY_CHAR;" );
+
+	skelout();
+
+	if ( ddebug )
+		puts( "#define FLEX_DEBUG" );
 
 	line_directive_out( stdout );
 
