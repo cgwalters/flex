@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/gen.c,v 2.45 1994/12/15 14:30:07 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/gen.c,v 2.46 1994/12/15 14:34:08 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -393,7 +393,6 @@ void gen_find_action()
 			indent_puts( "if ( yy_act == 0 )" );
 			indent_up();
 			indent_puts( "{ /* have to back up */" );
-
 			indent_puts( "yy_cp = yy_last_accepting_cpos;" );
 			indent_puts(
 				"yy_current_state = yy_last_accepting_state;" );
