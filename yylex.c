@@ -28,7 +28,7 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/yylex.c,v 2.5 1990/06/27 23:48:40 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/yylex.c,v 2.6 1993/02/06 20:57:33 vern Exp $ (LBL)";
 #endif
 
 #include <ctype.h>
@@ -181,7 +181,7 @@ int yylex()
 
 		    default:
 			if ( ! isascii( yylval ) || ! isprint( yylval ) )
-			    fprintf( stderr, "\\%.3o", yylval );
+			    fprintf( stderr, "\\%.3o", (unsigned int) yylval );
 			else
 			    (void) putc( yylval, stderr );
 			break;
