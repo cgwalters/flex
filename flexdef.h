@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.27 1993/11/30 13:01:09 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.28 1993/12/01 11:58:18 vern Exp $ (LBL) */
 
 #include <stdio.h>
 #include <string.h>
@@ -766,6 +766,9 @@ extern void skelout PROTO((void));
 
 /* Output a yy_trans_info structure. */
 extern void transition_struct_out PROTO((int, int));
+
+/* Only needed when using certain broken versions of bison to build parse.c. */
+extern void *yy_flex_xmalloc PROTO(( int ));
 
 /* Set a region of memory to 0. */
 extern void zero_out PROTO((char *, int));

@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/misc.c,v 2.25 1993/11/30 13:00:42 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/misc.c,v 2.26 1993/12/01 11:58:27 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -737,6 +737,21 @@ int element_v, element_n;
 
 		datapos = 0;
 		}
+	}
+
+
+/* The following is only needed when building flex's parser using certain
+ * broken versions of bison.
+ */
+void *yy_flex_xmalloc( size )
+int size;
+	{
+	void *result = yy_flex_alloc( size );
+
+	if ( ! result  )
+		flexfatal( "memory allocation failed in yy_flex_xmalloc()" );
+
+	return result;
 	}
 
 
