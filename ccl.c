@@ -31,7 +31,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/ccl.c,v 2.2 1990/03/14 13:39:01 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/ccl.c,v 2.3 1990/03/16 16:49:24 vern Exp $ (LBL)";
 
 #endif
 
@@ -154,7 +154,7 @@ int cset[];
 
     putc( '[', file );
 
-    for ( i = (uses_NUL ? 0 : 1); i < csize; ++i )
+    for ( i = 0; i < csize; ++i )
 	{
 	if ( cset[i] )
 	    {
