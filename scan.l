@@ -27,7 +27,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/scan.l,v 2.32 1993/12/23 20:41:11 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/scan.l,v 2.33 1993/12/26 15:02:58 vern Exp $ */
 
 #include "flexdef.h"
 #include "parse.h"
@@ -81,6 +81,7 @@ CCL_CHAR	([^\\\n\]]|{ESCSEQ})
 
 %%
 	static int bracelevel, didadef, indented_code, checking_used;
+	static int doing_rule_action = false;
 
 	int doing_codeblock = false;
 	int i;
@@ -258,7 +259,13 @@ CCL_CHAR	([^\\\n\]]|{ESCSEQ})
 <SECT2>{WS}"%{"		{
 			bracelevel = 1;
 			BEGIN(PERCENT_BRACE_ACTION);
-			return '\n';
+
+			if ( in_rule )
+				{
+				doing_rule_action = true;
+				in_rule = false;
+				return '\n';
+				}
 			}
 <SECT2>{WS}"|".*{NL}	continued_action = true; ++linenum; return '\n';
 
@@ -270,7 +277,13 @@ CCL_CHAR	([^\\\n\]]|{ESCSEQ})
 			bracelevel = 0;
 			continued_action = false;
 			BEGIN(ACTION);
-			return '\n';
+
+			if ( in_rule )
+				{
+				doing_rule_action = true;
+				in_rule = false;
+				return '\n';
+				}
 			}
 
 <SECT2>{OPTWS}{NL}	{
@@ -278,7 +291,13 @@ CCL_CHAR	([^\\\n\]]|{ESCSEQ})
 			continued_action = false;
 			BEGIN(ACTION);
 			unput( '\n' );	/* so <ACTION> sees it */
-			return '\n';
+
+			if ( in_rule )
+				{
+				doing_rule_action = true;
+				in_rule = false;
+				return '\n';
+				}
 			}
 
 <SECT2>"<<EOF>>"	return EOF_OP;
@@ -439,10 +458,10 @@ CCL_CHAR	([^\\\n\]]|{ESCSEQ})
 			if ( bracelevel == 0 ||
 			     (doing_codeblock && indented_code) )
 				{
-				if ( ! doing_codeblock )
+				if ( doing_rule_action )
 					add_action( "\tYY_BREAK\n" );
-				
-				doing_codeblock = false;
+
+				doing_rule_action = doing_codeblock = false;
 				BEGIN(SECT2);
 				}
 			}
@@ -460,7 +479,10 @@ CCL_CHAR	([^\\\n\]]|{ESCSEQ})
 			ACTION_ECHO;
 			if ( bracelevel == 0 )
 				{
-				add_action( "\tYY_BREAK\n" );
+				if ( doing_rule_action )
+					add_action( "\tYY_BREAK\n" );
+
+				doing_rule_action = false;
 				BEGIN(SECT2);
 				}
 			}
