@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/misc.c,v 2.24 1993/11/30 12:59:54 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/misc.c,v 2.25 1993/11/30 13:00:42 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -102,7 +102,7 @@ register char *str;
 	{
 	while ( *str )
 		{
-		if ( ! isascii( (Char) *str ) || ! isupper( (char) *str ) )
+		if ( ! isascii( (Char) *str ) || ! isupper( *str ) )
 			return 0;
 		++str;
 		}
