@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/misc.c,v 2.34 1993/12/17 10:04:07 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/misc.c,v 2.35 1993/12/26 15:03:14 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -387,7 +387,8 @@ void line_directive_out( output_file, do_infile )
 FILE *output_file;
 int do_infile;
 	{
-	char directive[MAXLINE];
+	char directive[MAXLINE], filename[MAXLINE];
+	char *s1, *s2, *s3;
 	static char line_fmt[] = "# line %d \"%s\"\n";
 
 	if ( ! gen_line_dirs )
@@ -397,15 +398,30 @@ int do_infile;
 		/* don't know the filename to use, skip */
 		return;
 
+	s1 = do_infile ? infilename : outfilename;
+	s2 = filename;
+	s3 = &filename[sizeof( filename ) - 2];
+
+	while ( s2 < s3 && *s1 )
+		{
+		if ( *s1 == '\\' )
+			/* Escape the '\' */
+			*s2++ = '\\';
+
+		*s2++ = *s1++;
+		}
+
+	*s2 = '\0';
+
 	if ( do_infile )
-		sprintf( directive, line_fmt, linenum, infilename );
+		sprintf( directive, line_fmt, linenum, filename );
 	else
 		{
 		if ( output_file == stdout )
 			/* Account for the line directive itself. */
 			++out_linenum;
 
-		sprintf( directive, line_fmt, out_linenum, outfilename );
+		sprintf( directive, line_fmt, out_linenum, filename );
 		}
 
 	/* If output_file is nil then we should put the directive in
