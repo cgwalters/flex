@@ -30,11 +30,11 @@
 
 #ifndef lint
 static char copyright[] =
-"@(#) Copyright (c) 1989 The Regents of the University of California.\n\
- All rights reserved.\n";
+    "@(#) Copyright (c) 1989 The Regents of the University of California.\n";
+static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/scan.l,v 1.6 1989/05/24 11:43:31 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/scan.l,v 1.7 1989/05/25 11:47:04 vern Exp $ (LBL)";
 #endif
 
 #define ACTION_ECHO fprintf( temp_action_file, "%s", yytext )

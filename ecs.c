@@ -27,11 +27,11 @@
 #ifndef lint
 
 static char copyright[] =
-    "@(#) Copyright (c) 1989 The Regents of the University of California.\n\
-     All rights reserved.\n";
+    "@(#) Copyright (c) 1989 The Regents of the University of California.\n";
+static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/ecs.c,v 1.5 1989/05/24 11:44:31 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/ecs.c,v 1.6 1989/05/25 11:47:08 vern Exp $ (LBL)";
 
 #endif
 
