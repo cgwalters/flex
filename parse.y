@@ -33,7 +33,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/parse.y,v 2.27 1995/04/20 12:42:37 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/parse.y,v 2.28 1995/04/21 11:51:51 vern Exp $ */
 
 
 /* Some versions of bison are broken in that they use alloca() but don't
@@ -42,9 +42,9 @@
  */
 #ifdef YYBISON
 /* AIX requires this to be the first thing in the file.  What a piece.  */
-#ifdef _AIX
+# ifdef _AIX
  #pragma alloca
-#endif
+# endif
 #endif
 
 #include "flexdef.h"
@@ -53,24 +53,26 @@
  * so HAVE_ALLOCA_H is (possibly) defined.
  */
 #ifdef YYBISON
-#ifdef __GNUC__
-#define alloca __builtin_alloca
-#else /* not __GNUC__ */
-#if HAVE_ALLOCA_H
-#include <alloca.h>
-#else /* not HAVE_ALLOCA_H */
-#ifdef __hpux
+# ifdef __GNUC__
+#  ifndef alloca
+#   define alloca __builtin_alloca
+#  endif
+# else
+#  if HAVE_ALLOCA_H
+#   include <alloca.h>
+#  else
+#   ifdef __hpux
 void *alloca ();
-#else /* not __hpux */
-#ifdef __TURBOC__
-#include <malloc.h>
-#else
+#   else
+#    ifdef __TURBOC__
+#     include <malloc.h>
+#    else
 char *alloca ();
-#endif /* not __TURBOC__ */
-#endif /* not __hpux */
-#endif /* not HAVE_ALLOCA_H */
-#endif /* not __GNUC__ */
-#endif /* YYBISON */
+#    endif
+#   endif
+#  endif
+# endif
+#endif
 
 /* Bletch, ^^^^ that was ugly! */
 
