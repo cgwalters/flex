@@ -27,7 +27,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/scan.l,v 2.50 1995/01/09 12:10:57 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/scan.l,v 2.51 1995/01/09 12:35:29 vern Exp $ */
 
 #include "flexdef.h"
 #include "parse.h"
@@ -674,6 +674,8 @@ char *file;
 		yyin = stdin;
 		infilename = copy_string( "<stdin>" );
 		}
+
+	linenum = 1;
 	}
 
 
