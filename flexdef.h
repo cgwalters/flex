@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.24 1993/11/28 16:46:47 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.25 1993/11/29 10:37:07 vern Exp $ (LBL) */
 
 #include <stdio.h>
 #include <string.h>
@@ -747,7 +747,7 @@ extern void mk2data PROTO((int));
 extern void mkdata PROTO((int));	/* generate a data statement */
 
 /* Return the integer represented by a string of digits. */
-extern int myctoi PROTO((Char []));
+extern int myctoi PROTO((char []));
 
 /* Return a printable version of the given character, which might be
  * 8-bit

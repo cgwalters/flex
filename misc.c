@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/misc.c,v 2.21 1993/11/28 16:44:47 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/misc.c,v 2.22 1993/11/29 10:37:16 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -477,11 +477,11 @@ int value;
 /* myctoi - return the integer represented by a string of digits */
 
 int myctoi( array )
-Char array[];
+char array[];
 	{
 	int val = 0;
 
-	(void) sscanf( (char *) array, "%d", &val );
+	(void) sscanf( array, "%d", &val );
 
 	return val;
 	}
