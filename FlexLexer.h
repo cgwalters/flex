@@ -1,4 +1,4 @@
-// $Header: /cvsroot/flex/flex/FlexLexer.h,v 1.12 1994/12/17 18:40:50 vern Exp $
+// $Header: /cvsroot/flex/flex/FlexLexer.h,v 1.13 1995/03/05 16:37:12 vern Exp $
 
 // FlexLexer.h -- define interfaces for lexical analyzer classes generated
 //		  by flex
@@ -69,6 +69,7 @@ public:
 protected:
 	char* yytext;
 	int yyleng;
+	int yy_flex_debug;	// only has effect with -d or "%option debug"
 };
 
 }
