@@ -28,7 +28,7 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/ccl.c,v 2.5 1990/06/27 23:48:13 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/ccl.c,v 2.6 1993/02/06 21:04:56 vern Exp $ (LBL)";
 #endif
 
 #include "flexdef.h"
@@ -65,7 +65,7 @@ int ch;
 
 	++num_reallocs;
 
-	ccltbl = reallocate_character_array( ccltbl, current_max_ccl_tbl_size );
+	ccltbl = reallocate_Character_array( ccltbl, current_max_ccl_tbl_size );
 	}
 
     ccllen[cclp] = len + 1;
