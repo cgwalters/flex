@@ -27,7 +27,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/scan.l,v 2.31 1993/12/17 10:04:12 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/scan.l,v 2.32 1993/12/23 20:41:11 vern Exp $ */
 
 #include "flexdef.h"
 #include "parse.h"
@@ -253,7 +253,6 @@ CCL_CHAR	([^\\\n\]]|{ESCSEQ})
 <SECT2>^"^"		return '^';
 <SECT2>\"		BEGIN(QUOTE); return '"';
 <SECT2>"{"/[0-9]		BEGIN(NUM); return '{';
-<SECT2>"{"[^0-9\n][^}\n]*	BEGIN(BRACEERROR);
 <SECT2>"$"/([ \t]|{NL})	return '$';
 
 <SECT2>{WS}"%{"		{
@@ -357,7 +356,7 @@ CCL_CHAR	([^\\\n\]]|{ESCSEQ})
 				}
 			}
 
-<SECT2>[/|*+?.()]	return (unsigned char) yytext[0];
+<SECT2>[/|*+?.(){}]	return (unsigned char) yytext[0];
 <SECT2>.		RETURNCHAR;
 
 
