@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.63 1995/04/20 13:53:23 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.64 1996/05/25 20:42:42 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -585,7 +585,7 @@ int argc;
 char **argv;
 	{
 	int i, sawcmpflag;
-	char *arg, *mktemp();
+	char *arg;
 
 	printstats = syntaxerror = trace = spprdflt = caseins = false;
 	lex_compat = C_plus_plus = backing_up_report = ddebug = fulltbl = false;
