@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/misc.c,v 2.20 1993/11/27 15:01:39 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/misc.c,v 2.21 1993/11/28 16:44:47 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -84,7 +84,7 @@ int size, element_size;
 /* all_lower - true if a string is all lower-case */
 
 int all_lower( str )
-register Char *str;
+register char *str;
 	{
 	while ( *str )
 		{
@@ -100,7 +100,7 @@ register Char *str;
 /* all_upper - true if a string is all upper-case */
 
 int all_upper( str )
-register Char *str;
+register char *str;
 	{
 	while ( *str )
 		{
