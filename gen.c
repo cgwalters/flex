@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/gen.c,v 2.46 1994/12/15 14:34:08 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/gen.c,v 2.47 1995/01/09 22:05:48 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -1078,6 +1078,7 @@ void make_tables()
 	skelout();
 
 
+	out_dec( "#define YY_NUM_RULES %d\n", num_rules );
 	out_dec( "#define YY_END_OF_BUFFER %d\n", num_rules + 1 );
 
 	if ( fullspd )
