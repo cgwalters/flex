@@ -1,5 +1,9 @@
 /* ccl - routines for character classes */
 
+#ifndef lint
+static char rcsid[] = "@(#) $Header: /cvsroot/flex/flex/ccl.c,v 1.4 1988/05/07 00:06:10 vern Exp $ (LBL)";
+#endif
+
 /*
  * Copyright (c) 1987, the University of California
  * 
