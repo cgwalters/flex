@@ -27,7 +27,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/scan.l,v 2.18 1993/09/16 20:33:21 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/scan.l,v 2.19 1993/09/21 20:42:48 vern Exp $ */
 
 #include "flexdef.h"
 #include "parse.h"
@@ -354,11 +354,11 @@ CCL_CHAR	[^\\\n\]]|{ESCSEQ}
 				}
 			}
 
-<SECT2>[/|*+?.()]	return yytext[0];
+<SECT2>[/|*+?.()]	return (int) yytext[0];
 <SECT2>.		RETURNCHAR;
 
 
-<SC>[,*]		return yytext[0];
+<SC>[,*]		return (int) yytext[0];
 <SC>">"			BEGIN(SECT2); return '>';
 <SC>">"/^		BEGIN(CARETISBOL); return '>';
 <SC>{SCNAME}		RETURNNAME;
