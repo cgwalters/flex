@@ -34,7 +34,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/scan.l,v 2.3 1990/03/14 13:41:31 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/scan.l,v 2.4 1990/03/16 16:53:05 vern Exp $ (LBL)";
 #endif
 
 #define ACTION_ECHO fprintf( temp_action_file, "%s", yytext )
