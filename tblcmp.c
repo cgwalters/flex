@@ -31,7 +31,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/tblcmp.c,v 2.2 1990/03/14 13:41:47 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/tblcmp.c,v 2.3 1990/03/16 16:53:29 vern Exp $ (LBL)";
 
 #endif
 
@@ -233,7 +233,7 @@ cmptmps()
 	 * transitions
 	 */
 
-	nummecs = cre8ecs( tecfwd, tecbck, numecs, 1 );
+	nummecs = cre8ecs( tecfwd, tecbck, numecs );
 	}
     
     else
@@ -760,7 +760,7 @@ int state[], statenum, comstate;
 	    }
 
     if ( usemecs )
-	mkeccl( transset, tsptr, tecfwd, tecbck, numecs );
+	mkeccl( transset, tsptr, tecfwd, tecbck, numecs, 0 );
 
     mkprot( tnxt + tmpbase, -numtemps, comstate );
 
