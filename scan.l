@@ -27,7 +27,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/scan.l,v 2.23 1993/11/28 16:44:25 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/scan.l,v 2.24 1993/11/29 14:57:53 vern Exp $ */
 
 #include "flexdef.h"
 #include "parse.h"
@@ -329,7 +329,7 @@ CCL_CHAR	([^\\\n\]]|{ESCSEQ})
 
 <SECT2>"{"{NAME}"}"	{
 			register Char *nmdefptr;
-			char *ndlookup();
+			Char *ndlookup();
 
 			(void) strcpy( nmstr, yytext + 1 );
 			nmstr[yyleng - 2] = '\0';  /* chop trailing brace */
