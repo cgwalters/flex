@@ -34,7 +34,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/scan.l,v 2.5 1990/03/16 17:40:06 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/scan.l,v 2.6 1990/03/20 11:36:04 vern Exp $ (LBL)";
 #endif
 
 #define ACTION_ECHO fprintf( temp_action_file, "%s", yytext )
@@ -132,8 +132,6 @@ ESCSEQ		\\([^\n]|[0-9]{1,3}|x[0-9a-f]{1,2})
 ^"%"[cr]{OPTWS}		/* ignore old lex directive */
 
 %t{OPTWS}\n		{
-			char *malloc();
-
 			++linenum;
 			xlation = (int *) malloc( sizeof( int ) * csize );
 
@@ -475,6 +473,11 @@ ESCSEQ		\\([^\n]|[0-9]{1,3}|x[0-9a-f]{1,2})
 <ACTION_STRING>\n	++linenum; ACTION_ECHO;
 <ACTION_STRING>\"	ACTION_ECHO; BEGIN(ACTION);
 <ACTION_STRING>.	ACTION_ECHO;
+
+<ACTION,ACTION_COMMENT,ACTION_STRING><<EOF>>	{
+			synerr( "EOF encountered inside an action" );
+			yyterminate();
+			}
 
 
 <SECT2,QUOTE,CCL>{ESCSEQ}	{
