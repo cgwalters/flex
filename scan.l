@@ -27,7 +27,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/scan.l,v 2.21 1993/11/26 15:08:55 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/scan.l,v 2.22 1993/11/26 16:09:24 vern Exp $ */
 
 #include "flexdef.h"
 #include "parse.h"
@@ -68,17 +68,17 @@ WS		[ \t]+
 OPTWS		[ \t]*
 NOT_WS		[^ \t\n]
 
-NL		\n|\r\n|\n\r
+NL		(\n|\r\n|\n\r)
 
-NAME		[a-z_][a-z_0-9-]*
+NAME		([a-z_][a-z_0-9-]*)
 NOT_NAME	[^a-z_*\n]+
 
 SCNAME		{NAME}
 
-ESCSEQ		\\([^\n]|[0-9]{1,3}|x[0-9a-f]{1,2})
+ESCSEQ		(\\([^\n]|[0-9]{1,3}|x[0-9a-f]{1,2}))
 
-FIRST_CCL_CHAR	[^\\\n]|{ESCSEQ}
-CCL_CHAR	[^\\\n\]]|{ESCSEQ}
+FIRST_CCL_CHAR	([^\\\n]|{ESCSEQ})
+CCL_CHAR	([^\\\n\]]|{ESCSEQ})
 
 %%
 	static int bracelevel, didadef, indented_code, checking_used;
