@@ -28,7 +28,7 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/nfa.c,v 2.8 1993/04/14 22:41:59 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/nfa.c,v 2.9 1993/07/05 21:36:26 vern Exp $ (LBL)";
 #endif
 
 #include "flexdef.h"
@@ -642,6 +642,8 @@ int sym;
 
 	else
 		{
+		check_char( sym );
+
 		if ( useecs )
 			/* Map NUL's to csize. */
 			mkechar( sym ? sym : csize, nextecm, ecgroup );
