@@ -28,7 +28,7 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/yylex.c,v 2.8 1993/08/24 20:42:31 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/yylex.c,v 2.9 1993/08/25 16:40:25 vern Exp $ (LBL)";
 #endif
 
 #include <ctype.h>
@@ -57,12 +57,6 @@ int yylex()
 			synerr( "premature EOF" );
 			sectnum = 2;
 			toktype = SECTEND;
-			}
-
-		else if ( sectnum == 2 )
-			{
-			sectnum = 3;
-			toktype = 0;
 			}
 
 		else
