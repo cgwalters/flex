@@ -31,7 +31,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/nfa.c,v 2.2 1990/01/15 17:48:47 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/nfa.c,v 2.3 1990/03/16 16:52:00 vern Exp $ (LBL)";
 
 #endif
 
@@ -642,7 +642,8 @@ int sym;
     else
 	{
 	if ( useecs )
-	    mkechar( sym, nextecm, ecgroup );
+	    /* map NUL's to csize */
+	    mkechar( sym ? sym : csize, nextecm, ecgroup );
 	}
 
     return ( lastnfa );
