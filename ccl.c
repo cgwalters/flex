@@ -28,7 +28,7 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/ccl.c,v 2.7 1993/04/14 22:41:35 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/ccl.c,v 2.8 1993/07/05 21:31:46 vern Exp $ (LBL)";
 #endif
 
 #include "flexdef.h"
@@ -40,6 +40,8 @@ int cclp;
 int ch;
 	{
 	int ind, len, newpos, i;
+
+	check_char( ch );
 
 	len = ccllen[cclp];
 	ind = cclmap[cclp];
@@ -121,7 +123,6 @@ void list_character_set( file, cset )
 FILE *file;
 int cset[];
 	{
-	char *readable_form();
 	register int i;
 
 	putc( '[', file );

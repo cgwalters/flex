@@ -28,7 +28,7 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/misc.c,v 2.13 1993/06/12 13:42:32 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/misc.c,v 2.14 1993/07/05 21:35:51 vern Exp $ (LBL)";
 #endif
 
 #include <ctype.h>
@@ -152,6 +152,24 @@ int v[], n;
 				v[j + 1] = k;
 				}
 	}
+
+
+/* check_char - checks a character to make sure it's within the range
+ *		we're expecting.  If not, generates fatal error message
+ *		and exits.
+ */
+
+void check_char( int c )
+	{
+	if ( c >= CSIZE )
+		lerrsf( "bad character '%s' detected in check_char()",
+			readable_form( c ) );
+
+	if ( c >= csize )
+		lerrsf( "scanner requires -8 flag to use the character '%s'",
+			readable_form( c ) );
+	}
+
 
 
 /* clower - replace upper-case letter to lower-case */
