@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/nfa.c,v 2.13 1993/12/07 10:18:28 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/nfa.c,v 2.14 1993/12/11 14:40:51 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -268,7 +268,7 @@ int mach, variable_trail_rule, headcnt, trailcnt;
 	 */
 	add_action( "YY_USER_ACTION\n" );
 
-	line_directive_out( (FILE *) 0 );
+	line_directive_out( (FILE *) 0, 1 );
 	}
 
 

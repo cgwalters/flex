@@ -27,7 +27,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/scan.l,v 2.27 1993/12/07 11:11:04 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/scan.l,v 2.28 1993/12/11 14:40:54 vern Exp $ */
 
 #include "flexdef.h"
 #include "parse.h"
@@ -93,7 +93,7 @@ CCL_CHAR	([^\\\n\]]|{ESCSEQ})
 ^"%x"{NAME}?		return XSCDECL;
 ^"%{".*{NL}		{
 			++linenum;
-			line_directive_out( (FILE *) 0 );
+			line_directive_out( (FILE *) 0, 1 );
 			indented_code = false;
 			BEGIN(CODEBLOCK);
 			}
@@ -104,7 +104,7 @@ CCL_CHAR	([^\\\n\]]|{ESCSEQ})
 			sectnum = 2;
 			bracelevel = 0;
 			mark_defs1();
-			line_directive_out( (FILE *) 0 );
+			line_directive_out( (FILE *) 0, 1 );
 			BEGIN(SECT2PROLOG);
 			return SECTEND;
 			}

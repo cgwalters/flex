@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/sym.c,v 2.11 1993/12/03 21:59:59 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/sym.c,v 2.12 1993/12/11 14:40:55 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -231,7 +231,7 @@ int xcluflg;
 	char *copy_string();
 
 	/* Generate start condition definition, for use in BEGIN et al. */
-	printf( "#define %s %d\n", str, lastsc );
+	out_str_dec( "#define %s %d\n", str, lastsc );
 
 	if ( ++lastsc >= current_max_scs )
 		scextend();

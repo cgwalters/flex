@@ -29,7 +29,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/parse.y,v 2.15 1993/12/09 13:57:23 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/parse.y,v 2.16 1993/12/11 14:40:52 vern Exp $ */
 
 
 /* Some versions of bison are broken in that they use alloca() but don't
@@ -716,7 +716,7 @@ void build_eof_action()
 			}
 		}
 
-	line_directive_out( (FILE *) 0 );
+	line_directive_out( (FILE *) 0, 1 );
 
 	/* This isn't a normal rule after all - don't count it as
 	 * such, so we don't have any holes in the rule numbering
