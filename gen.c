@@ -31,7 +31,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/gen.c,v 1.4 1989/05/25 11:47:30 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/gen.c,v 1.5 1989/05/25 12:21:18 vern Exp $ (LBL)";
 
 #endif
 
@@ -548,7 +548,7 @@ gen_next_match()
 	else
 	    printf( "while ( yy_current_state != %d );\n", jamstate );
 
-	if ( ! reject )
+	if ( ! reject && ! interactive )
 	    {
 	    /* do the guaranteed-needed backtrack to figure out the match */
 	    indent_puts( "yy_cp = yy_last_accepting_cpos;" );
