@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.54 1995/03/04 16:14:30 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.55 1995/03/04 18:07:08 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -937,7 +937,11 @@ _( "Variable trailing context rules entail a large performance penalty\n" ) );
 		if ( do_stdinit )
 			{
 			outn( "#ifdef VMS" );
+			outn( "#ifndef __VMS_POSIX" );
 			outn( yy_nostdinit );
+			outn( "#else" );
+			outn( yy_stdinit );
+			outn( "#endif" );
 			outn( "#else" );
 			outn( yy_stdinit );
 			outn( "#endif" );
