@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/gen.c,v 2.52 1995/03/27 14:36:45 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/gen.c,v 2.53 1995/04/20 10:55:33 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -668,8 +668,10 @@ void gen_NUL_trans()
 	 */
 	int need_backing_up = (num_backing_up > 0 && ! reject);
 
-	if ( need_backing_up && ! nultrans )
-		/* We'll need yy_cp lying around for the gen_backing_up(). */
+	if ( need_backing_up && (! nultrans || fullspd || fulltbl) )
+		/* We're going to need yy_cp lying around for the call
+		 * below to gen_backing_up().
+		 */
 		indent_puts( "register char *yy_cp = yy_c_buf_p;" );
 
 	outc( '\n' );
