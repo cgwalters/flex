@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.51 1995/02/06 09:38:10 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.52 1995/03/04 16:07:41 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -309,6 +309,8 @@ void check_options()
 
 		if ( do_yywrap )
 			GEN_PREFIX( "wrap" );
+
+		GEN_PREFIX( "_flex_debug" );
 
 		outn( "" );
 		}
