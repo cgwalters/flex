@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/misc.c,v 2.38 1994/11/24 16:43:30 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/misc.c,v 2.39 1994/12/03 11:26:51 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -63,7 +63,16 @@ char *new_text;
 
 	while ( len + action_index >= action_size - 10 /* slop */ )
 		{
-		action_size *= 2;
+		int new_size = action_size * 2;
+
+		if ( new_size <= 0 )
+			/* Increase just a little, to try to avoid overflow
+			 * on 16-bit machines.
+			 */
+			action_size += action_size / 8;
+		else
+			action_size = new_size;
+
 		action_array =
 			reallocate_character_array( action_array, action_size );
 		}
