@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/misc.c,v 2.39 1994/12/03 11:26:51 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/misc.c,v 2.40 1994/12/03 13:43:17 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -537,9 +537,16 @@ Char array[];
 		{
 		case 'b': return '\b';
 		case 'f': return '\f';
-		case 'n': return '\n';
 		case 'r': return '\r';
 		case 't': return '\t';
+
+		case 'n':
+			/* Special case.  flex.skl takes care to map
+			 * incoming '\n's to '\012', even on systems that
+			 * don't use that value.  We need to be consistent
+			 * with that choice.
+			 */
+			return '\012';
 
 #if __STDC__
 		case 'a': return '\a';
