@@ -31,7 +31,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/tblcmp.c,v 2.0 1989/06/20 15:50:21 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/tblcmp.c,v 2.1 1990/01/15 17:47:34 vern Exp $ (LBL)";
 
 #endif
 
@@ -727,7 +727,7 @@ int state[], statenum, comstate;
 
     {
     int i, numdiff, tmpbase, tmp[CSIZE + 1];
-    char transset[CSIZE + 1];
+    Char transset[CSIZE + 1];
     int tsptr;
 
     ++numtemps;
