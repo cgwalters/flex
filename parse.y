@@ -30,7 +30,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/parse.y,v 2.21 1993/12/27 14:41:51 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/parse.y,v 2.22 1994/11/05 17:09:27 vern Exp $ */
 
 
 /* Some versions of bison are broken in that they use alloca() but don't
@@ -48,7 +48,11 @@
 #ifdef _AIX
  #pragma alloca
 #else /* not _AIX */
+#ifdef __hpux
+void *alloca ();
+#else /* not __hpux */
 char *alloca ();
+#endif /* not __hpux */
 #endif /* not _AIX */
 #endif /* not HAVE_ALLOCA_H */
 #endif /* not __GNUC__ */
@@ -63,7 +67,7 @@ int pat, scnum, eps, headcnt, trailcnt, anyccl, lastchar, i, rulelen;
 int trlcontxt, xcluflg, cclsorted, varlength, variable_trail_rule;
 
 int *scon_stk;
-int scon_stk_ptr, max_scon_stk;
+int scon_stk_ptr;
 
 Char clower();
 char *copy_string();
