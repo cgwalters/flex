@@ -31,14 +31,12 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/misc.c,v 2.4 1990/03/16 16:51:45 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/misc.c,v 2.5 1990/03/20 11:33:27 vern Exp $ (LBL)";
 
 #endif
 
 #include <ctype.h>
 #include "flexdef.h"
-
-char *malloc(), *realloc();
 
 
 /* action_out - write the actions from the temporary file to lex.yy.c
