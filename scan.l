@@ -27,7 +27,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/scan.l,v 2.53 1995/03/05 20:37:26 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/scan.l,v 2.54 1995/03/20 14:01:16 vern Exp $ */
 
 #include "flexdef.h"
 #include "parse.h"
@@ -260,6 +260,7 @@ LEXOPT		[aceknopr]
 	unput		ACTION_IFDEF("YY_NO_UNPUT", ! option_sense);
 	verbose		printstats = option_sense;
 	warn		nowarn = ! option_sense;
+	yylineno	do_yylineno = option_sense;
 	yymore		yymore_really_used = option_sense;
 	yywrap		do_yywrap = option_sense;
 
