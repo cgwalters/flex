@@ -29,7 +29,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/parse.y,v 2.14 1993/11/30 12:59:42 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/parse.y,v 2.15 1993/12/09 13:57:23 vern Exp $ */
 
 
 /* Some versions of bison are broken in that they use alloca() but don't
@@ -364,6 +364,13 @@ rule		:  re2 re
 
 		|  re '$'
 			{
+			headcnt = 0;
+			trailcnt = 1;
+			rulelen = 1;
+			varlength = false;
+
+			current_state_type = STATE_TRAILING_CONTEXT;
+
 			if ( trlcontxt )
 				{
 				synerr( "trailing context used twice" );
@@ -375,16 +382,13 @@ rule		:  re2 re
 				/* See the comment in the rule for "re2 re"
 				 * above.
 				 */
-				if ( ! varlength || headcnt != 0 )
-					warn(
+				warn(
 		"trailing context made variable due to preceding '|' action" );
 
-				/* Mark as variable. */
 				varlength = true;
-				headcnt = 0;
 				}
 
-			if ( lex_compat || (varlength && headcnt == 0) )
+			if ( lex_compat || varlength )
 				{
 				/* Again, see the comment in the rule for
 				 * "re2 re" above.
@@ -392,15 +396,6 @@ rule		:  re2 re
 				add_accept( $1,
 					num_rules | YY_TRAILING_HEAD_MASK );
 				variable_trail_rule = true;
-				}
-
-			else
-				{
-				if ( ! varlength )
-					headcnt = rulelen;
-
-				++rulelen;
-				trailcnt = 1;
 				}
 
 			trlcontxt = true;
