@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.60 1995/03/21 13:44:34 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.61 1995/04/20 11:34:59 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -629,6 +629,13 @@ char **argv;
 
 			else if ( ! strcmp( arg, "--version" ) )
 				arg = "-V";
+
+			else if ( ! strcmp( arg, "--" ) )
+				{ /* end of options */
+				--argc;
+				++argv;
+				break;
+				}
 			}
 
 		for ( i = 1; arg[i] != '\0'; ++i )
