@@ -31,7 +31,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/ecs.c,v 1.6 1989/05/25 11:47:08 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/ecs.c,v 2.0 1989/06/20 15:49:39 vern Exp $ (LBL)";
 
 #endif
 

@@ -24,7 +24,7 @@
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 1.9 1989/06/20 15:38:34 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.0 1989/06/20 15:49:50 vern Exp $ (LBL) */
 
 #ifndef FILE
 #include <stdio.h>
