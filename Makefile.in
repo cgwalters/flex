@@ -1,4 +1,4 @@
-# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.25 1993/12/05 17:08:35 vern Exp $ (LBL)
+# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.26 1993/12/11 10:33:54 vern Exp $ (LBL)
 
 # If your version of "make" does not define $(MAKE), comment in the
 # definition of "MAKE" below.  (You only need to do this if you intend
@@ -186,7 +186,7 @@ installdirs:
 
 uninstall:
 	rm -f $(bindir)/flex $(bindir)/flex++
-	rm -f $libdir)/libfl.a
+	rm -f $(libdir)/libfl.a
 	rm -f $(includedir)/FlexLexer.h
 	rm -f $(mandir)/flex.$(manext) $(mandir)/flexdoc.$(manext)
 
