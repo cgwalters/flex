@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/misc.c,v 2.19 1993/11/20 15:03:48 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/misc.c,v 2.20 1993/11/27 15:01:39 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -184,7 +184,7 @@ register char *str;
 	for ( c = str; *c; ++c )
 		;
 
-	copy = yy_flex_alloc( (c - str + 1) * sizeof( char ) );
+	copy = (char *) yy_flex_alloc( (c - str + 1) * sizeof( char ) );
 
 	if ( copy == NULL )
 		flexfatal( "dynamic memory failure in copy_string()" );
