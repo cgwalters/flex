@@ -1,4 +1,4 @@
-// $Header: /cvsroot/flex/flex/FlexLexer.h,v 1.15 1995/03/05 21:35:10 vern Exp $
+// $Header: /cvsroot/flex/flex/FlexLexer.h,v 1.16 1995/03/20 14:02:36 vern Exp $
 
 // FlexLexer.h -- define interfaces for lexical analyzer classes generated
 //		  by flex
@@ -78,9 +78,15 @@ public:
 	virtual void switch_streams( istream* new_in = 0,
 					ostream* new_out = 0 ) = 0;
 
+	int lineno() const		{ return yylineno; }
+
+	int debug() const		{ return yy_flex_debug; }
+	void set_debug( int flag )	{ yy_flex_debug = flag; }
+
 protected:
 	char* yytext;
 	int yyleng;
+	int yylineno;		// only maintained if you use %option yylineno
 	int yy_flex_debug;	// only has effect with -d or "%option debug"
 };
 
