@@ -26,12 +26,9 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.22 1993/11/26 15:08:43 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.23 1993/11/26 16:59:58 vern Exp $ (LBL) */
 
-#ifndef FILE
 #include <stdio.h>
-#endif
-
 #include <string.h>
 #include <ctype.h>
 
