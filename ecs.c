@@ -31,7 +31,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/ecs.c,v 2.3 1990/03/16 16:55:24 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/ecs.c,v 2.4 1990/05/26 16:40:17 vern Exp $ (LBL)";
 
 #endif
 
@@ -43,7 +43,7 @@ static char rcsid[] =
  *    ccl2ecl();
  */
 
-ccl2ecl()
+void ccl2ecl()
 
     {
     int i, ich, newlen, cclp, ccls, cclmec;
@@ -235,7 +235,7 @@ int ecmap[];
  * NUL_mapping is the value which NUL (0) should be mapped to.
  */
 
-mkeccl( ccls, lenccl, fwd, bck, llsiz, NUL_mapping )
+void mkeccl( ccls, lenccl, fwd, bck, llsiz, NUL_mapping )
 Char ccls[];
 int lenccl, fwd[], bck[], llsiz, NUL_mapping;
 
@@ -334,7 +334,7 @@ next_pt:
  *    mkechar( tch, fwd, bck );
  */
 
-mkechar( tch, fwd, bck )
+void mkechar( tch, fwd, bck )
 int tch, fwd[], bck[];
 
     {
