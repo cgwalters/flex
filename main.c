@@ -32,10 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-#ifndef lint
-static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/main.c,v 2.17 1993/09/16 20:28:08 vern Exp $ (LBL)";
-#endif
+/* $Header: /cvsroot/flex/flex/main.c,v 2.18 1993/09/16 20:32:06 vern Exp $ */
 
 
 #include "flexdef.h"

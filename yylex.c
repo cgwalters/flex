@@ -26,10 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-#ifndef lint
-static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/yylex.c,v 2.9 1993/08/25 16:40:25 vern Exp $ (LBL)";
-#endif
+/* $Header: /cvsroot/flex/flex/yylex.c,v 2.10 1993/09/16 20:31:48 vern Exp $ */
 
 #include <ctype.h>
 #include "flexdef.h"
