@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/misc.c,v 2.46 1995/04/20 11:35:31 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/misc.c,v 2.47 1995/04/28 11:39:39 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -37,7 +37,7 @@ int value;
 	{
 	char buf[MAXLINE];
 
-	if ( strlen( defname ) > MAXLINE / 2 )
+	if ( (int) strlen( defname ) > MAXLINE / 2 )
 		{
 		format_pinpoint_message( _( "name \"%s\" ridiculously long" ), 
 			defname );
