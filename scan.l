@@ -27,7 +27,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/scan.l,v 2.52 1995/03/04 16:11:23 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/scan.l,v 2.53 1995/03/05 20:37:26 vern Exp $ */
 
 #include "flexdef.h"
 #include "parse.h"
@@ -273,6 +273,7 @@ LEXOPT		[aceknopr]
 
 	outfile		return OPT_OUTFILE;
 	prefix		return OPT_PREFIX;
+	yyclass		return OPT_YYCLASS;
 
 	\"[^"\n]*\"	{
 			strcpy( nmstr, yytext + 1 );
