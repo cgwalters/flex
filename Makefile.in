@@ -1,4 +1,4 @@
-# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.18 1993/11/30 20:58:21 vern Exp $ (LBL)
+# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.19 1993/12/01 07:56:36 vern Exp $ (LBL)
 
 # If your version of "make" does not define $(MAKE), comment in the
 # definition of "MAKE" below.  (You only need to do this if you intend
@@ -49,7 +49,6 @@ RANLIB = @RANLIB@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
-COMPRESS = compress
 
 # You normally do not need to modify anything below this point.
 # ------------------------------------------------------------
@@ -225,7 +224,8 @@ dist2:
 	@chmod 444 $(DIST_NAME)/initscan.c
 	@chmod +w $(DIST_NAME)/Makefile.in
 	tar chf $(DIST_NAME).tar $(DIST_NAME)
-	$(COMPRESS) $(DIST_NAME).tar
+	compress <$(DIST_NAME).tar >$(DIST_NAME).tar.Z
+	gzip <$(DIST_NAME).tar >$(DIST_NAME).tar.gz
 
 Makefile: Makefile.in config.status
 	$(SHELL) config.status
