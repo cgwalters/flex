@@ -1,4 +1,4 @@
-// $Header: /cvsroot/flex/flex/FlexLexer.h,v 1.19 1996/05/25 20:43:02 vern Exp $
+// $Header: /cvsroot/flex/flex/FlexLexer.h,v 1.20 1997/06/23 19:48:11 vern Exp $
 
 // FlexLexer.h -- define interfaces for lexical analyzer classes generated
 //		  by flex
@@ -99,6 +99,8 @@ protected:
 // yyFlexLexer, as discussed in the flex man page.
 #define yyFlexLexerOnce
 
+extern "C++" {
+
 class yyFlexLexer : public FlexLexer {
 public:
 	// arg_yyin and arg_yyout default to the cin and cout, but we
@@ -181,5 +183,7 @@ protected:
 	int yy_more_offset;
 	int yy_prev_more_offset;
 };
+
+}
 
 #endif
