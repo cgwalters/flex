@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/gen.c,v 2.56 1996/05/25 20:43:38 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/gen.c,v 2.57 1996/10/11 15:13:58 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -1023,6 +1023,8 @@ void gentabs()
 		}
 
 	dataend();
+
+	flex_free( (void *) acc_array );
 	}
 
 
