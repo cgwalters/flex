@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.7 1990/06/27 23:48:19 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.8 1990/07/28 16:53:13 vern Exp $ (LBL) */
 
 #ifndef FILE
 #include <stdio.h>
@@ -90,7 +90,16 @@ char *memset();
 #define SHORT_FILE_NAMES
 #endif
 
+#ifdef __STDC__
+#ifndef DONT_HAVE_STDLIB_H
+#include <stdlib.h>
+#else
+void *malloc( unsigned );
+void free( void* );
+#endif
+#else
 char *malloc(), *realloc();
+#endif
 
 
 /* maximum line length we'll have to deal with */
