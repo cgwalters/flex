@@ -31,7 +31,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/dfa.c,v 2.3 1990/03/16 16:50:00 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/dfa.c,v 2.4 1990/03/20 11:30:35 vern Exp $ (LBL)";
 
 #endif
 
@@ -776,7 +776,6 @@ int sns[], numstates, accset[], nacc, hashval, *newds_addr;
     int didsort = 0;
     register int i, j;
     int newds, *oldsns;
-    char *malloc();
 
     for ( i = 1; i <= lastdfa; ++i )
 	if ( hashval == dhash[i] )
@@ -1011,8 +1010,14 @@ int symlist[];
 	if ( tch != SYM_EPSILON )
 	    {
 	    if ( tch < -lastccl || tch > csize )
-		flexfatal(
-		    "bad transition character detected in sympartition()" );
+		{
+		if ( tch > csize && tch <= CSIZE )
+		    flexerror( "scanner requires -8 flag" );
+
+		else
+		    flexfatal(
+			"bad transition character detected in sympartition()" );
+		}
 
 	    if ( tch >= 0 )
 		{ /* character transition */
