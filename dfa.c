@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/dfa.c,v 2.15 1993/10/02 13:37:25 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/dfa.c,v 2.16 1993/11/28 16:45:01 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -526,7 +526,7 @@ void ntod()
 			 */
 			num_full_table_rows = numecs + 1;
 
-		/* Unless -a, declare it "short" because it's a real
+		/* Unless -Ca, declare it "short" because it's a real
 		 * long-shot that that won't be large enough.
 		 */
 		printf( "static const %s yy_nxt[][%d] =\n    {\n",
