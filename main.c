@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.22 1993/10/02 15:25:48 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.23 1993/10/03 16:01:41 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -433,6 +433,10 @@ char **argv;
 
 	program_name = argv[0];
 
+	if ( program_name[0] != '\0' &&
+	     program_name[strlen( program_name ) - 1] == '+' )
+		C_plus_plus = true;
+
 	/* read flags */
 	for ( --argc, ++argv; argc ; --argc, ++argv )
 		{
@@ -758,12 +762,12 @@ char **argv;
 
 void readin()
 	{
+	skelout();
+
 	if ( csize == 256 )
 		puts( "typedef unsigned char YY_CHAR;" );
 	else
 		puts( "typedef char YY_CHAR;" );
-
-	skelout();
 
 	if ( C_plus_plus )
 		puts( "#define yytext_ptr yytext" );
@@ -815,13 +819,13 @@ void readin()
 			puts( "#define YYLMAX YY_READ_BUF_SIZE" );
 			puts( "#endif YYLMAX\n" );
 			puts( "char yytext[YYLMAX];" );
-			puts( "YY_CHAR *yytext_ptr;" );
+			puts( "char *yytext_ptr;" );
 			}
 
 		else
 			{
-			puts( "extern YY_CHAR *yytext;" );
-			puts( "YY_CHAR *yytext;" );
+			puts( "extern char *yytext;" );
+			puts( "char *yytext;" );
 			puts( "#define yytext_ptr yytext" );
 			}
 		}
