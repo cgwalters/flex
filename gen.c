@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/gen.c,v 2.22 1993/10/03 16:01:56 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/gen.c,v 2.23 1993/10/03 17:34:54 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -1052,7 +1052,7 @@ void make_tables()
 		indent_puts(
 		"YY_FATAL_ERROR( \"token too large, exceeds YYLMAX\" ); \\" );
 		indent_down();
-		indent_puts( "strcpy( yytext, (char *) yytext_ptr ); \\" );
+		indent_puts( "strcpy( yytext, yytext_ptr ); \\" );
 		}
 
 	set_indent( 0 );
