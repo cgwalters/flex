@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.30 1993/11/29 16:40:54 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.31 1993/11/29 17:13:43 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -857,17 +857,11 @@ void readin()
 			{
 			puts( "\n#include <string.h>\n" );
 			puts( "extern char yytext[];\n" );
-			puts( "#ifndef YYLMAX" );
-			puts( "#define YYLMAX YY_READ_BUF_SIZE" );
-			puts( "#endif YYLMAX\n" );
-			puts( "char yytext[YYLMAX];" );
-			puts( "char *yytext_ptr;" );
 			}
 
 		else
 			{
 			puts( "extern char *yytext;" );
-			puts( "char *yytext;" );
 			puts( "#define yytext_ptr yytext" );
 			}
 		}

@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/gen.c,v 2.26 1993/11/29 16:40:51 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/gen.c,v 2.27 1993/11/29 17:13:35 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -1219,6 +1219,21 @@ void make_tables()
 		{
 		indent_puts( "#define yymore() yymore_used_but_not_detected" );
 		indent_puts( "#define YY_MORE_ADJ 0" );
+		}
+
+	if ( ! C_plus_plus )
+		{
+		if ( yytext_is_array )
+			{
+			puts( "#ifndef YYLMAX" );
+			puts( "#define YYLMAX 8192" );
+			puts( "#endif\n" );
+			puts( "char yytext[YYLMAX];" );
+			puts( "char *yytext_ptr;" );
+			}
+
+		else
+			puts( "char *yytext;" );
 		}
 
 	fputs( &action_array[defs1_offset], stdout );
