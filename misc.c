@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/misc.c,v 2.22 1993/11/29 10:37:16 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/misc.c,v 2.23 1993/11/29 16:40:56 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -43,16 +43,14 @@ char *new_text;
 	{
 	int len = strlen( new_text );
 
-	while ( len + action_index + action_offset >= action_size - 10
-								/* slop */ )
+	while ( len + action_index >= action_size - 10 /* slop */ )
 		{
 		action_size *= 2;
-		prolog = action_array =
+		action_array =
 			reallocate_character_array( action_array, action_size );
-		action = &action_array[action_offset];
 		}
 
-	strcpy( &action[action_index], new_text );
+	strcpy( &action_array[action_index], new_text );
 
 	action_index += len;
 	}
@@ -408,17 +406,27 @@ FILE *output_file;
 	}
 
 
+/* mark_defs1 - mark the current position in the action array as
+ *               representing where the user's section 1 definitions end
+ *		 and the prolog begins
+ */
+void mark_defs1()
+	{
+	defs1_offset = 0;
+	action_array[action_index++] = '\0';
+	action_offset = prolog_offset = action_index;
+	action_array[action_index] = '\0';
+	}
+
+
 /* mark_prolog - mark the current position in the action array as
- *               representing the action prolog
+ *               representing the end of the action prolog
  */
 void mark_prolog()
 	{
-	prolog = action_array;
 	action_array[action_index++] = '\0';
 	action_offset = action_index;
-	action = &action_array[action_offset];
-	action_index = 0;
-	action[action_index] = '\0';
+	action_array[action_index] = '\0';
 	}
 
 
