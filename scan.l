@@ -27,7 +27,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/scan.l,v 2.54 1995/03/20 14:01:16 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/scan.l,v 2.55 1995/04/20 11:35:12 vern Exp $ */
 
 #include "flexdef.h"
 #include "parse.h"
@@ -83,7 +83,7 @@ NOT_NAME	[^[:alpha:]_*\n]+
 
 SCNAME		{NAME}
 
-ESCSEQ		(\\([^\n]|[[:digit:]]{1,3}|x[[:xdigit:]]{1,2}))
+ESCSEQ		(\\([^\n]|[0-7]{1,3}|x[[:xdigit:]]{1,2}))
 
 FIRST_CCL_CHAR	([^\\\n]|{ESCSEQ})
 CCL_CHAR	([^\\\n\]]|{ESCSEQ})
@@ -668,7 +668,7 @@ int yywrap()
 void set_input_file( file )
 char *file;
 	{
-	if ( file )
+	if ( file && strcmp( file, "-" ) )
 		{
 		infilename = copy_string( file );
 		yyin = fopen( infilename, "r" );
