@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.34 1993/12/15 10:08:29 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.35 1993/12/15 10:23:16 vern Exp $ (LBL) */
 
 #include <stdio.h>
 #include <ctype.h>
@@ -606,8 +606,8 @@ extern int num_backing_up, bol_needed;
 void *allocate_array PROTO((int, int));
 void *reallocate_array PROTO((void*, int, int));
 
-void *yy_flex_alloc PROTO((int));
-void *yy_flex_realloc PROTO((void*, int));
+void *yy_flex_alloc PROTO((unsigned int));
+void *yy_flex_realloc PROTO((void*, unsigned int));
 void yy_flex_free PROTO((void*));
 int yy_flex_strcmp PROTO(( const char *s1, const char *s2 ));
 void yy_flex_strcpy PROTO(( char *s1, const char *s2 ));
