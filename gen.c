@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/gen.c,v 2.30 1993/12/03 21:59:54 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/gen.c,v 2.31 1993/12/07 10:18:24 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -240,7 +240,7 @@ void genecs()
 		if ( caseins && (i >= 'A') && (i <= 'Z') )
 			ecgroup[i] = ecgroup[clower( i )];
 
-		ecgroup[i] = abs( ecgroup[i] );
+		ecgroup[i] = ABS( ecgroup[i] );
 		mkdata( ecgroup[i] );
 		}
 
@@ -786,7 +786,7 @@ void gentabs()
 		dfaacc[end_of_buffer_state].dfaacc_set = EOB_accepting_list;
 
 		printf( long_align ? C_long_decl : C_short_decl,
-			"yy_acclist", max( numas, 1 ) + 1 );
+			"yy_acclist", MAX( numas, 1 ) + 1 );
 
 		j = 1;	/* index into "yy_acclist" array */
 
@@ -910,9 +910,9 @@ void gentabs()
 			{
 			if ( trace )
 				fprintf( stderr, "%d = %d\n",
-					i, abs( tecbck[i] ) );
+					i, ABS( tecbck[i] ) );
 
-			mkdata( abs( tecbck[i] ) );
+			mkdata( ABS( tecbck[i] ) );
 			}
 
 		dataend();

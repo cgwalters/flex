@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/nfa.c,v 2.12 1993/12/05 17:08:15 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/nfa.c,v 2.13 1993/12/07 10:18:28 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -301,8 +301,8 @@ int first, last;
 		{
 		mkxtion( finalst[first], last );
 		finalst[first] = finalst[last];
-		lastst[first] = max( lastst[first], lastst[last] );
-		firstst[first] = min( firstst[first], firstst[last] );
+		lastst[first] = MAX( lastst[first], lastst[last] );
+		firstst[first] = MIN( firstst[first], firstst[last] );
 
 		return first;
 		}

@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/ecs.c,v 2.8 1993/09/16 20:32:09 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/ecs.c,v 2.9 1993/12/07 10:18:20 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -80,7 +80,7 @@ int fwd[], bck[], num;
 
 	numcl = 0;
 
-	/* Create equivalence class numbers.  From now on, abs( bck(x) )
+	/* Create equivalence class numbers.  From now on, ABS( bck(x) )
 	 * is the equivalence class number for object x.  If bck(x)
 	 * is positive, then x is the representative of its equivalence
 	 * class.
