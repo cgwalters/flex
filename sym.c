@@ -31,7 +31,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/sym.c,v 2.1 1990/01/15 17:49:14 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/sym.c,v 2.2 1990/03/20 11:36:33 vern Exp $ (LBL)";
 
 #endif
 
@@ -68,7 +68,6 @@ int table_size;
     register struct hash_entry *sym_entry = table[hash_val];
     register struct hash_entry *new_entry;
     register struct hash_entry *successor;
-    char *malloc();
 
     while ( sym_entry )
 	{
