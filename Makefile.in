@@ -1,4 +1,4 @@
-# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.6 1993/11/27 14:07:08 vern Exp $ (LBL)
+# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.7 1993/11/27 14:14:06 vern Exp $ (LBL)
 
 # If your version of "make" does not define $(MAKE), comment in the
 # definition of "MAKE" below.  (You only need to do this if you intend
@@ -145,7 +145,8 @@ bigcheck:
 	rm -f scan.c ; $(MAKE) COMPRESSION="-Ce" check
 	rm -f scan.c ; $(MAKE) COMPRESSION="-Cm" check
 	rm -f scan.c ; $(MAKE) COMPRESSION="-Cfe" check
-	rm -f scan.c ; $(MAKE) COMPRESSION="-CFe" check
+	rm -f scan.c ; $(MAKE) COMPRESSION="-CFer" check
+	rm -f scan.c ; $(MAKE) COMPRESSION="-l" PERF_REPORT="" check
 	rm -f scan.c ; $(MAKE)
 	@echo "All checks successful"
 
