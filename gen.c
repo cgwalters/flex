@@ -28,7 +28,7 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/gen.c,v 2.9 1990/06/27 23:48:22 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/gen.c,v 2.10 1990/08/29 12:11:13 vern Exp $ (LBL)";
 #endif
 
 #include "flexdef.h"
@@ -1198,6 +1198,7 @@ void make_tables()
 
     if ( yymore_used )
 	{
+	indent_puts( "yy_more_len = 0;" );
 	indent_puts( "yy_doing_yy_more = yy_more_flag;" );
 	indent_puts( "if ( yy_doing_yy_more )" );
 	indent_up();
