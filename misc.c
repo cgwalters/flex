@@ -28,7 +28,7 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/misc.c,v 2.10 1993/02/06 20:58:57 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/misc.c,v 2.11 1993/04/05 20:36:29 vern Exp $ (LBL)";
 #endif
 
 #include <ctype.h>
@@ -643,6 +643,8 @@ Char array[];
 	{
 #ifdef __STDC__
 	case 'a': return ( '\a' );
+#else
+	case 'a': return ( '\007' );
 #endif
 	case 'b': return ( '\b' );
 	case 'f': return ( '\f' );
