@@ -33,7 +33,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/parse.y,v 2.24 1994/12/06 21:08:10 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/parse.y,v 2.25 1994/12/10 17:52:55 vern Exp $ */
 
 
 /* Some versions of bison are broken in that they use alloca() but don't
@@ -740,7 +740,12 @@ ccl_expr:	   CCE_ALNUM	{ CCL_EXPR(isalnum) }
 		|  CCE_PRINT	{ CCL_EXPR(isprint) }
 		|  CCE_PUNCT	{ CCL_EXPR(ispunct) }
 		|  CCE_SPACE	{ CCL_EXPR(isspace) }
-		|  CCE_UPPER	{ CCL_EXPR(isupper) }
+		|  CCE_UPPER	{
+				if ( caseins )
+					CCL_EXPR(islower)
+				else
+					CCL_EXPR(isupper)
+				}
 		|  CCE_XDIGIT	{ CCL_EXPR(isxdigit) }
 		;
 		
