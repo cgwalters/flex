@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.49 1995/01/11 10:53:23 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.50 1995/01/11 11:00:01 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -130,6 +130,11 @@ int argc;
 char **argv;
 	{
 	int i;
+
+	/* Make sure the program name is defined even before possibly
+	 * munching on argv, so argv_fixup can report error messages.
+	 */
+	program_name = "flex"; 
 
 #ifdef THINK_C
 	argc = ccommand( &argv );
@@ -574,8 +579,6 @@ char **argv;
 
 	if ( argv[0] && argv[0][0] != '\0' )
 		program_name = argv[0];
-	else
-		program_name = "flex"; 
 
 	if ( program_name[0] != '\0' &&
 	     program_name[strlen( program_name ) - 1] == '+' )
