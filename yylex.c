@@ -17,7 +17,7 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/yylex.c,v 1.4 1988/05/08 20:13:35 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/yylex.c,v 1.5 1989/05/19 14:13:16 vern Exp $ (LBL)";
 #endif
 
 /* yylex - scan for a regular expression token
@@ -65,7 +65,7 @@ int yylex()
 	{
 	if ( beglin )
 	    {
-	    fprintf( stderr, "%d\t", accnum + 1 );
+	    fprintf( stderr, "%d\t", num_rules + 1 );
 	    beglin = 0;
 	    }
 
