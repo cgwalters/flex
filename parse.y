@@ -1,6 +1,6 @@
 /* parse.y - parser for flex input */
 
-%token CHAR NUMBER SECTEND SCDECL XSCDECL WHITESPACE NAME PREVCCL EOF_OP
+%token CHAR NUMBER SECTEND SCDECL XSCDECL NAME PREVCCL EOF_OP
 
 %{
 /*-
@@ -29,7 +29,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/parse.y,v 2.16 1993/12/11 14:40:52 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/parse.y,v 2.17 1993/12/16 20:44:10 vern Exp $ */
 
 
 /* Some versions of bison are broken in that they use alloca() but don't
@@ -121,9 +121,9 @@ initlex		:
 			}
 		;
 
-sect1		:  sect1 startconddecl WHITESPACE namelist1 '\n'
+sect1		:  sect1 startconddecl namelist1
 		|
-		|  error '\n'
+		|  error
 			{ synerr( "unknown error processing section 1" ); }
 		;
 
@@ -147,7 +147,7 @@ startconddecl	:  SCDECL
 			{ xcluflg = true; }
 		;
 
-namelist1	:  namelist1 WHITESPACE NAME
+namelist1	:  namelist1 NAME
 			{ scinstal( nmstr, xcluflg ); }
 
 		|  NAME
