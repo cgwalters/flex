@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/misc.c,v 2.18 1993/09/21 20:44:17 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/misc.c,v 2.19 1993/11/20 15:03:48 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -149,7 +149,8 @@ int v[], n;
  *		and exits.
  */
 
-void check_char( int c )
+void check_char( c )
+int c;
 	{
 	if ( c >= CSIZE )
 		lerrsf( "bad character '%s' detected in check_char()",
