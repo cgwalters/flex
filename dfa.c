@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/dfa.c,v 2.22 1994/11/24 16:42:44 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/dfa.c,v 2.23 1994/12/03 11:29:17 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -677,15 +677,25 @@ void ntod()
 				}
 			}
 
-		numsnpairs = numsnpairs + totaltrans;
-
 		if ( caseins && ! useecs )
 			{
 			register int j;
 
 			for ( i = 'A', j = 'a'; i <= 'Z'; ++i, ++j )
+				{
+				if ( state[i] == 0 && state[j] != 0 )
+					/* We're adding a transition. */
+					++totaltrans;
+
+				else if ( state[i] != 0 && state[j] == 0 )
+					/* We're taking away a transition. */
+					--totaltrans;
+
 				state[i] = state[j];
+				}
 			}
+
+		numsnpairs += totaltrans;
 
 		if ( ds > num_start_states )
 			check_for_backing_up( ds, state );
