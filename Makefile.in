@@ -1,4 +1,4 @@
-# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.32 1994/11/24 16:50:23 vern Exp $ (LBL)
+# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.33 1994/11/29 16:14:31 vern Exp $ (LBL)
 
 # If your version of "make" does not define $(MAKE), comment in the
 # definition of "MAKE" below.  (You only need to do this if you intend
@@ -207,7 +207,7 @@ gcc-lint: $(LINTSRCS)
 	gcc -Dlint -Wall $(LINTSRCS) >flex.gcc-lint 2>&1
 
 mostlyclean:
-	rm -f *~ a.out *.bak core errs scan.tmp
+	rm -f a.out *.bak core errs scan.tmp
 
 clean: mostlyclean
 	rm -f parse.c parse.h *.o alloca.c *.lint lex.yy.c lex.yy.cc $(FLEXLIB)
