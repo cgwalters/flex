@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.19 1993/10/02 13:37:22 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.20 1993/10/02 13:44:09 vern Exp $ (LBL) */
 
 #ifndef FILE
 #include <stdio.h>
@@ -862,6 +862,7 @@ extern int sclookup PROTO((char[]));
 extern void bldtbl PROTO((int[], int, int, int, int));
 
 extern void cmptmps PROTO((void));	/* compress template table entries */
+extern void expand_nxt_chk PROTO((void));	/* increase nxt/chk arrays */
 extern void inittbl PROTO((void));	/* initialize transition tables */
 /* Make the default, "jam" table entries. */
 extern void mkdeftbl PROTO((void));
