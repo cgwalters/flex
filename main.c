@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.18 1993/09/16 20:32:06 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.19 1993/09/21 20:45:33 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -202,6 +202,8 @@ int exit_status;
 
 	{
 	int tblsiz;
+	int unlink();
+
 	if ( skelfile != NULL )
 		{
 		if ( ferror( skelfile ) )
@@ -764,7 +766,7 @@ void readin()
 		printf( "\n#define YY_USES_REJECT\n" );
 
 	if ( C_plus_plus )
-		printf( "\n#include \"yyflexlexer.h\"\n" );
+		printf( "\n#include \"FlexLexer.h\"\n" );
 
 	if ( ddebug )
 		puts( "\n#define FLEX_DEBUG" );
