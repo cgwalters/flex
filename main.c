@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.21 1993/10/02 15:20:15 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.22 1993/10/02 15:25:48 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -931,5 +931,5 @@ void usage()
 	fprintf( stderr,
 	"\t\t-CF  do not compress scanner tables; use -F representation\n" );
 	fprintf( stderr, "\t-P  specify scanner prefix other than \"yy\"\n" );
-	fprintf( stderr, "\t-S  specify non-default skeleton file\n" );
+	fprintf( stderr, "\t-S  specify skeleton file\n" );
 	}
