@@ -31,11 +31,17 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/sym.c,v 2.2 1990/03/20 11:36:33 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/sym.c,v 2.3 1990/05/26 16:53:57 vern Exp $ (LBL)";
 
 #endif
 
 #include "flexdef.h"
+
+
+/* declare functions that have forward references */
+
+int hashfunct PROTO((register char[], int));
+
 
 struct hash_entry *ndtbl[NAME_TABLE_HASH_SIZE];
 struct hash_entry *sctbl[START_COND_HASH_SIZE];
@@ -112,7 +118,7 @@ int table_size;
  *    cclinstal( ccltxt, cclnum );
  */
 
-cclinstal( ccltxt, cclnum )
+void cclinstal( ccltxt, cclnum )
 Char ccltxt[];
 int cclnum;
 
@@ -210,7 +216,7 @@ int hash_size;
  *    ndinstal( nd, def );
  */
 
-ndinstal( nd, def )
+void ndinstal( nd, def )
 char nd[];
 Char def[];
 
@@ -251,7 +257,7 @@ char nd[];
  *    the start condition is Exclusive if xcluflg is true
  */
 
-scinstal( str, xcluflg )
+void scinstal( str, xcluflg )
 char str[];
 int xcluflg;
 
@@ -288,7 +294,7 @@ int xcluflg;
 
     if ( addsym( scname[lastsc], (char *) 0, lastsc,
 		 sctbl, START_COND_HASH_SIZE ) )
-	lerrsf( "start condition %s declared twice", str );
+	format_pinpoint_message( "start condition %s declared twice", str );
 
     scset[lastsc] = mkstate( SYM_EPSILON );
     scbol[lastsc] = mkstate( SYM_EPSILON );
