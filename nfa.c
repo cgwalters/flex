@@ -31,7 +31,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/nfa.c,v 2.3 1990/03/16 16:52:00 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/nfa.c,v 2.4 1990/03/20 11:34:32 vern Exp $ (LBL)";
 
 #endif
 
@@ -217,6 +217,12 @@ int mach, variable_trail_rule, headcnt, trailcnt;
      * number because we do it before we start parsing the current rule
      */
     rule_linenum[num_rules] = linenum;
+
+    /* if this is a continued action, then the line-number has
+     * already been updated, giving us the wrong number
+     */
+    if ( continued_action )
+	--rule_linenum[num_rules];
 
     fprintf( temp_action_file, "case %d:\n", num_rules );
 
