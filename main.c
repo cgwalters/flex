@@ -34,7 +34,7 @@ char copyright[] =
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/main.c,v 2.10 1993/02/06 21:05:41 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/main.c,v 2.11 1993/04/05 20:37:04 vern Exp $ (LBL)";
 #endif
 
 
@@ -723,9 +723,8 @@ void readin()
 	flexend( 1 );
 	}
 
-    else if ( useecs )
+    if ( useecs )
 	numecs = cre8ecs( nextecm, ecgroup, csize );
-
     else
 	numecs = csize;
 
@@ -735,6 +734,23 @@ void readin()
 
     if ( useecs )
 	ccl2ecl();
+
+    if ( yytext_is_array )
+	{
+	puts( "extern char yytext[];\n" );
+	puts( "#ifndef YYLMAX" );
+	puts( "#define YYLMAX YY_READ_BUF_SIZE" );
+	puts( "#endif YYLMAX\n" );
+	puts( "char yytext[YYLMAX];" );
+	puts( "YY_CHAR *yytext_ptr;" );
+	}
+
+    else
+	{
+	puts( "extern YY_CHAR *yytext;" );
+	puts( "YY_CHAR *yytext;" );
+	puts( "#define yytext_ptr yytext" );
+	}
     }
 
 
