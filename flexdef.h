@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.20 1993/10/02 13:44:09 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.21 1993/11/20 15:05:18 vern Exp $ (LBL) */
 
 #ifndef FILE
 #include <stdio.h>
@@ -322,6 +322,8 @@ extern struct hash_entry *ccltab[CCL_HASH_SIZE];
  * C_plus_plus - if true (i.e., -+ flag), generate a C++ scanner class;
  *   otherwise, a standard C scanner
  * long_align - if true (-a flag), favor long-word alignment.
+ * use_read - if true (-f, -F, or -Cr) then use read() for scanner input;
+ *   otherwise, use fread().
  * yytext_is_array - if true (i.e., %array directive), then declare
  *   yytext as a array instead of a character pointer.  Nice and inefficient.
  * csize - size of character set for the scanner we're generating;
@@ -340,7 +342,7 @@ extern struct hash_entry *ccltab[CCL_HASH_SIZE];
 extern int printstats, syntaxerror, eofseen, ddebug, trace, nowarn, spprdflt;
 extern int interactive, caseins, useecs, fulltbl, usemecs;
 extern int fullspd, gen_line_dirs, performance_report, backing_up_report;
-extern int C_plus_plus, long_align, yytext_is_array, csize;
+extern int C_plus_plus, long_align, use_read, yytext_is_array, csize;
 extern int yymore_used, reject, real_reject, continued_action;
 
 #define REALLY_NOT_DETERMINED 0
