@@ -29,7 +29,7 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/scan.l,v 2.15 1993/08/24 20:43:03 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/scan.l,v 2.16 1993/08/25 16:51:45 vern Exp $ (LBL)";
 #endif
 
 #include "flexdef.h"
@@ -215,8 +215,7 @@ CCL_CHAR	[^\\\n\]]|{ESCSEQ}
 
 <SECT2PROLOG><<EOF>>	{
 			MARK_END_OF_PROLOG;
-			sectnum = 3;
-			BEGIN(SECT3);
+			sectnum = 0;
 			yyterminate(); /* to stop the parser */
 			}
 
