@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/gen.c,v 2.43 1994/12/04 08:28:09 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/gen.c,v 2.44 1994/12/06 21:28:51 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -1504,8 +1504,21 @@ void make_tables()
 		}
 
 	skelout();
-	if ( lex_compat )
-		{ /* update yylineno inside of input() */
+	/* Update BOL and yylineno inside of input(). */
+	if ( bol_needed )
+		{
+		indent_puts( "yy_current_buffer->yy_at_bol = (c == '\\n');" );
+		if ( lex_compat )
+			{
+			indent_puts( "if ( yy_current_buffer->yy_at_bol )" );
+			indent_up();
+			indent_puts( "++yylineno;" );
+			indent_down();
+			}
+		}
+
+	else if ( lex_compat )
+		{
 		indent_puts( "if ( c == '\\n' )" );
 		indent_up();
 		indent_puts( "++yylineno;" );
