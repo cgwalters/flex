@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.33 1993/12/11 17:06:24 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.34 1993/12/15 10:08:29 vern Exp $ (LBL) */
 
 #include <stdio.h>
 #include <ctype.h>
@@ -96,8 +96,8 @@
  */
 #define NUMDATALINES 10
 
-/* Transition_struct_out() definitions. */
-#define TRANS_STRUCT_PRINT_LENGTH 15
+/* transition_struct_out() definitions. */
+#define TRANS_STRUCT_PRINT_LENGTH 14
 
 /* Returns true if an nfa state has an epsilon out-transition slot
  * that can be used.  This definition is currently not used.
