@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/sym.c,v 2.17 1994/11/24 16:43:35 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/sym.c,v 2.18 1995/01/05 22:04:21 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -150,7 +150,7 @@ int table_size;
 	return &empty_entry;
 	}
 
-    
+
 /* hashfunct - compute the hash value for "str" and hash size "hash_size" */
 
 int hashfunct( str, hash_size )
