@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.16 1993/08/25 17:11:42 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.17 1993/09/16 20:38:58 vern Exp $ (LBL) */
 
 #ifndef FILE
 #include <stdio.h>
@@ -883,10 +883,3 @@ extern void stack1 PROTO((int, int, int, int));
 /* from file yylex.c */
 
 extern int yylex PROTO((void));
-
-
-/* The Unix system calls used here. */
-
-extern int read PROTO((int, char*, int));
-extern int unlink PROTO((char*));
-extern int write PROTO((int, char*, int));
