@@ -32,7 +32,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/main.c,v 2.2 1989/06/20 16:36:26 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/main.c,v 2.3 1989/12/30 15:34:28 vern Exp $ (LBL)";
 
 #endif
 
@@ -327,7 +327,7 @@ char **argv;
 
     {
     int i, sawcmpflag, use_stdout;
-    char *arg, *skelname = NULL, *flex_gettime(), clower(), *mktemp();
+    char *arg, *skelname = NULL, *flex_gettime(), *mktemp();
 
     printstats = syntaxerror = trace = spprdflt = interactive = caseins = false;
     backtrack_report = performance_report = ddebug = fulltbl = fullspd = false;
@@ -366,7 +366,7 @@ char **argv;
 			}
 
 		    for ( ++i; arg[i] != '\0'; ++i )
-			switch ( clower( arg[i] ) )
+			switch ( arg[i] )
 			    {
 			    case 'e':
 				useecs = true;
