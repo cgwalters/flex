@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.36 1993/12/09 13:58:40 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.37 1993/12/11 10:29:39 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -852,7 +852,7 @@ void readin()
 		printf( "FILE *yyin = (FILE *) 0, *yyout = (FILE *) 0;\n" );
 
 	if ( C_plus_plus )
-		printf( "\n#include \"FlexLexer.h\"\n" );
+		printf( "\n#include <FlexLexer.h>\n" );
 
 	else
 		{
