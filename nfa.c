@@ -31,7 +31,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/nfa.c,v 2.0 1989/06/20 15:50:05 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/nfa.c,v 2.1 1989/12/30 15:34:53 vern Exp $ (LBL)";
 
 #endif
 
@@ -249,10 +249,6 @@ int mach, variable_trail_rule, headcnt, trailcnt;
 		if ( headcnt > 0 )
 		    fprintf( temp_action_file, "%s = %s + %d;\n",
 			     scanner_cp, scanner_bp, headcnt );
-
-		else
-		    fprintf( temp_action_file, "%s = %s;\n",
-			     scanner_cp, scanner_bp );
 		}
 
 	    else
