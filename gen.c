@@ -28,7 +28,7 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/gen.c,v 2.13 1993/02/06 21:04:29 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/gen.c,v 2.14 1993/04/05 20:35:08 vern Exp $ (LBL)";
 #endif
 
 #include "flexdef.h"
@@ -1022,6 +1022,18 @@ void make_tables()
 
     else
 	indent_puts( "yyleng = yy_cp - yy_bp; \\" );
+
+    /* now also deal with copying yytext_ptr to yytext if needed */
+    skelout();
+    if ( yytext_is_array )
+	{
+	indent_puts( "if ( yyleng >= YYLMAX ) \\" );
+	indent_up();
+	indent_puts(
+		"YY_FATAL_ERROR( \"token too large, exceeds YYLMAX\" ); \\" );
+	indent_down();
+	indent_puts( "strcpy( yytext, (char *) yytext_ptr ); \\" );
+	}
 
     set_indent( 0 );
     
