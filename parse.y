@@ -1,7 +1,7 @@
 /* parse.y - parser for flex input */
 
 %token CHAR NUMBER SECTEND SCDECL XSCDECL NAME PREVCCL EOF_OP
-%token OPTION_OP OPT_OUTFILE OPT_PREFIX
+%token OPTION_OP OPT_OUTFILE OPT_PREFIX OPT_YYCLASS
 
 %token CCE_ALNUM CCE_ALPHA CCE_BLANK CCE_CNTRL CCE_DIGIT CCE_GRAPH
 %token CCE_LOWER CCE_PRINT CCE_PUNCT CCE_SPACE CCE_UPPER CCE_XDIGIT
@@ -33,7 +33,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/parse.y,v 2.25 1994/12/10 17:52:55 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/parse.y,v 2.26 1995/03/05 20:37:32 vern Exp $ */
 
 
 /* Some versions of bison are broken in that they use alloca() but don't
@@ -185,6 +185,8 @@ option		:  OPT_OUTFILE '=' NAME
 			}
 		|  OPT_PREFIX '=' NAME
 			{ prefix = copy_string( nmstr ); }
+		|  OPT_YYCLASS '=' NAME
+			{ yyclass = copy_string( nmstr ); }
 		;
 
 sect2		:  sect2 scon initforrule flexrule '\n'
