@@ -28,18 +28,12 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/yylex.c,v 2.7 1993/04/14 22:42:05 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/yylex.c,v 2.8 1993/08/24 20:42:31 vern Exp $ (LBL)";
 #endif
 
 #include <ctype.h>
 #include "flexdef.h"
 #include "parse.h"
-
-
-/* ANSI C does not guarantee that isascii() is defined */
-#ifndef isascii
-#define isascii(c) ((c) <= 0177)
-#endif
 
 
 /* yylex - scan for a regular expression token */
