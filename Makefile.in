@@ -1,4 +1,4 @@
-# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.22 1993/12/03 21:35:38 vern Exp $ (LBL)
+# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.23 1993/12/03 22:18:32 vern Exp $ (LBL)
 
 # If your version of "make" does not define $(MAKE), comment in the
 # definition of "MAKE" below.  (You only need to do this if you intend
@@ -169,6 +169,7 @@ install: flex $(FLEXLIB) installdirs install.$(INSTALLMAN)
 	@rm -f $(bindir)/flex++
 	$(LN_S) $(bindir)/flex $(bindir)/flex++
 	$(INSTALL_DATA) $(FLEXLIB) $(libdir)/libfl.a
+	-(cd $(libdir); $(RANLIB) $(libdir)/libfl.a)
 	$(INSTALL_DATA) $(srcdir)/FlexLexer.h $(includedir)/FlexLexer.h
 
 install.man: flex.1 flexdoc.1
