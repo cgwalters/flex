@@ -1,4 +1,4 @@
-// $Header: /cvsroot/flex/flex/README,v 2.3 1989/06/20 16:36:32 vern Exp $
+// $Header: /cvsroot/flex/flex/README,v 2.4 1989/06/20 17:12:01 vern Exp $
 
 This is release 2.1 of flex - a beta release.
 
@@ -83,7 +83,7 @@ and testing using:
 
 Format the manual entry using
 
-    nroff -man flex.1
+	make flex.man
 
 
 Please send problems and feedback to:
