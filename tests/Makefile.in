@@ -1,4 +1,4 @@
-# @(#) $Header: /cvsroot/flex/flex/tests/Attic/Makefile.in,v 1.1 2001/05/18 17:22:22 wlestes Exp $ (LBL)
+# @(#) $Header: /cvsroot/flex/flex/tests/Attic/Makefile.in,v 1.2 2001/05/18 20:30:12 wlestes Exp $ (LBL)
 
 @SET_MAKE@
 
@@ -8,7 +8,7 @@ srcdir= @srcdir@
 
 all:
 	for dir in $(TESTDIRS) ; do \
-       (cd "$$dir" && $(MAKE) ) || exit -1; \
+       (cd "$$dir" && $(MAKE) ) || echo test in $$dir failed ; \
     done
 
 check: 
