@@ -32,14 +32,14 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/main.c,v 2.1 1989/06/20 16:02:28 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/main.c,v 2.2 1989/06/20 16:36:26 vern Exp $ (LBL)";
 
 #endif
 
 
 #include "flexdef.h"
 
-static char flex_version[] = "2.0.1 (beta)";
+static char flex_version[] = "2.1 (beta)";
 
 
 /* these globals are all defined and commented in flexdef.h */
