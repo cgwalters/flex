@@ -31,7 +31,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/gen.c,v 2.6 1990/03/20 11:32:30 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/gen.c,v 2.7 1990/03/30 02:43:05 vern Exp $ (LBL)";
 
 #endif
 
@@ -119,7 +119,7 @@ gen_bt_action()
 	indent_puts( "yy_cp = yy_last_accepting_cpos;" );
 
     indent_puts( "yy_current_state = yy_last_accepting_state;" );
-    indent_puts( "continue; /* go to \"YY_DO_BEFORE_ACTION\" */" );
+    indent_puts( "goto yy_find_action;" );
     putchar( '\n' );
 
     set_indent( 0 );
