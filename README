@@ -1,4 +1,4 @@
-// $Header: /cvsroot/flex/flex/README,v 2.6 1990/03/20 14:54:13 vern Exp $
+// $Header: /cvsroot/flex/flex/README,v 2.7 1990/03/23 14:16:08 vern Exp $
 
 This is release 2.2 of flex - an alpha release.
 
@@ -74,7 +74,6 @@ Please send problems and feedback to:
 
 	vern@cs.cornell.edu
 	decvax!cornell!vern
-	vern@LBL (Bitnet)
 
 	Vern Paxson
 	CS Department
