@@ -17,7 +17,7 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/misc.c,v 1.4 1988/05/08 20:04:47 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/misc.c,v 1.5 1989/05/19 14:07:39 vern Exp $ (LBL)";
 #endif
 
 char *malloc(), *realloc();
@@ -65,6 +65,52 @@ int size, element_size;
 	flexfatal( "memory allocation failed in allocate_array()" );
 
     return ( mem );
+    }
+
+
+/* all_lower - true if a string is all lower-case
+ *
+ * synopsis:
+ *    char *str;
+ *    int all_lower();
+ *    true/false = all_lower( str );
+ */
+
+int all_lower( str )
+register char *str;
+
+    {
+    while ( *str )
+	{
+	if ( ! islower( *str ) )
+	    return ( 0 );
+	++str;
+	}
+
+    return ( 1 );
+    }
+
+
+/* all_upper - true if a string is all upper-case
+ *
+ * synopsis:
+ *    char *str;
+ *    int all_upper();
+ *    true/false = all_upper( str );
+ */
+
+int all_upper( str )
+register char *str;
+
+    {
+    while ( *str )
+	{
+	if ( ! isupper( *str ) )
+	    return ( 0 );
+	++str;
+	}
+
+    return ( 1 );
     }
 
 
