@@ -31,7 +31,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/nfa.c,v 1.7 1989/05/25 11:48:20 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/nfa.c,v 1.8 1989/06/20 15:38:56 vern Exp $ (LBL)";
 
 #endif
 
@@ -216,7 +216,7 @@ int mach, variable_trail_rule, headcnt, trailcnt;
     /* we did this in new_rule(), but it often gets the wrong
      * number because we do it before we start parsing the current rule
      */
-    rule_type[num_rules] = linenum;
+    rule_linenum[num_rules] = linenum;
 
     fprintf( temp_action_file, "case %d:\n", num_rules );
 
