@@ -16,7 +16,7 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/sym.c,v 1.4 1988/05/08 20:08:00 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/sym.c,v 1.5 1989/05/19 14:11:11 vern Exp $ (LBL)";
 #endif
 
 struct hash_entry *ndtbl[NAME_TABLE_HASH_SIZE];
@@ -263,7 +263,7 @@ int xcluflg;
 	}
 
     if ( addsym( copy_string( str ), (char *) 0, lastsc,
-	 sctbl, START_COND_HASH_SIZE ) )
+	         sctbl, START_COND_HASH_SIZE ) )
 	lerrsf( "start condition %s declared twice", str );
 
     scset[lastsc] = mkstate( SYM_EPSILON );
