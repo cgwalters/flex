@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.52 1995/03/20 14:03:05 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.53 1995/04/20 11:17:36 vern Exp $ (LBL) */
 
 #include <stdio.h>
 #include <ctype.h>
@@ -838,6 +838,9 @@ extern void cshell PROTO((Char [], int, int));
 
 /* Finish up a block of data declarations. */
 extern void dataend PROTO((void));
+
+/* Flush generated data statements. */
+extern void dataflush PROTO((void));
 
 /* Report an error message and terminate. */
 extern void flexerror PROTO((const char[]));
