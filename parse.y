@@ -29,7 +29,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/parse.y,v 2.17 1993/12/16 20:44:10 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/parse.y,v 2.18 1993/12/23 20:41:47 vern Exp $ */
 
 
 /* Some versions of bison are broken in that they use alloca() but don't
@@ -158,6 +158,7 @@ namelist1	:  namelist1 NAME
 		;
 
 sect2		:  sect2 initforrule flexrule '\n'
+		|  sect2 '{' '\n' sect2 '}' '\n'
 		|
 		;
 
