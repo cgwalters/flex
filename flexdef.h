@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.44 1994/12/03 13:44:28 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.45 1994/12/29 15:58:06 vern Exp $ (LBL) */
 
 #include <stdio.h>
 #include <ctype.h>
@@ -83,7 +83,7 @@
 #endif
 
 #ifdef VMS
-#define unlink delete
+#define unlink remove
 #define SHORT_FILE_NAMES
 #endif
 
