@@ -29,10 +29,8 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/scan.l,v 2.13 1993/06/12 13:42:49 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/scan.l,v 2.14 1993/07/05 21:37:06 vern Exp $ (LBL)";
 #endif
-
-#undef yywrap
 
 #include "flexdef.h"
 #include "parse.h"
