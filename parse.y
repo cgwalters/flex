@@ -37,7 +37,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/parse.y,v 2.0 1989/06/20 15:50:09 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/parse.y,v 2.1 1989/06/20 17:23:54 vern Exp $ (LBL)";
 
 #endif
 
@@ -304,9 +304,11 @@ re              :  re '|' series
 			     */
 			    if ( ! varlength || headcnt != 0 )
 				{
-				if ( performance_report )
-				    fprintf( stderr,
-    "trailing context rule made variable because of preceding '|' action\n" );
+				fprintf( stderr,
+    "flex: warning - trailing context rule at line %d made variable because\n",
+					 linenum );
+				fprintf( stderr,
+					 "      of preceding '|' action\n" );
 				}
 
 			    /* mark as variable */
