@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/dfa.c,v 2.19 1993/12/11 14:40:40 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/dfa.c,v 2.20 1993/12/15 10:23:40 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -510,7 +510,7 @@ void ntod()
 			state[i] = 0;
 
 		place_state( state, 0, 0 );
-		dfaacc[i].dfaacc_state = 0;
+		dfaacc[0].dfaacc_state = 0;
 		}
 
 	else if ( fulltbl )
