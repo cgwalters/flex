@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/misc.c,v 2.45 1995/04/20 11:17:21 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/misc.c,v 2.46 1995/04/20 11:35:31 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -554,8 +554,6 @@ Char array[];
 		case '5':
 		case '6':
 		case '7':
-		case '8':
-		case '9':
 			{ /* \<octal> */
 			int sptr = 1;
 
