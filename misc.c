@@ -28,7 +28,7 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/misc.c,v 2.12 1993/04/14 22:41:57 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/misc.c,v 2.13 1993/06/12 13:42:32 vern Exp $ (LBL)";
 #endif
 
 #include <ctype.h>
@@ -82,7 +82,7 @@ int size, element_size;
 	if ( element_size * size <= 0 )
 		flexfatal( "request for < 1 byte in allocate_array()" );
 
-	mem = (void *) malloc( (unsigned) (element_size * size) );
+	mem = yy_flex_alloc( element_size * size );
 
 	if ( mem == NULL )
 		flexfatal( "memory allocation failed in allocate_array()" );
@@ -175,7 +175,7 @@ register char *str;
 	for ( c = str; *c; ++c )
 		;
 
-	copy = malloc( (unsigned) ((c - str + 1) * sizeof( char )) );
+	copy = yy_flex_alloc( (c - str + 1) * sizeof( char ) );
 
 	if ( copy == NULL )
 		flexfatal( "dynamic memory failure in copy_string()" );
@@ -666,8 +666,7 @@ int size, element_size;
 		flexfatal(
 			"attempt to increase array size by less than 1 byte" );
 
-	new_array =
-	(void *) realloc( (char *)array, (unsigned) (size * element_size ));
+	new_array = yy_flex_realloc( array, size * element_size );
 
 	if ( new_array == NULL )
 		flexfatal( "attempt to increase array size failed" );
