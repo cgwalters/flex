@@ -29,7 +29,32 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/parse.y,v 2.13 1993/11/26 15:08:53 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/parse.y,v 2.14 1993/11/30 12:59:42 vern Exp $ */
+
+
+/* Some versions of bison are broken in that they use alloca() but don't
+ * declare it properly.  The following is the patented (just kidding!)
+ * #ifdef chud to fix the problem, courtesy of Francois Pinard.
+ */
+#ifdef YYBISON
+/* AIX requires this to be the first thing in the file.  */
+#ifdef __GNUC__
+#define alloca __builtin_alloca
+#else /* not __GNUC__ */
+#if HAVE_ALLOCA_H
+#include <alloca.h>
+#else /* not HAVE_ALLOCA_H */
+#ifdef _AIX
+ #pragma alloca
+#else /* not _AIX */
+char *alloca ();
+#endif /* not _AIX */
+#endif /* not HAVE_ALLOCA_H */
+#endif /* not __GNUC__ */
+#endif /* YYBISON */
+
+/* Bletch, ^^^^ that was ugly! */
+
 
 #include "flexdef.h"
 
