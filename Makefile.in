@@ -1,4 +1,4 @@
-# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.28 1993/12/17 10:05:49 vern Exp $ (LBL)
+# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.29 1993/12/27 14:57:12 vern Exp $ (LBL)
 
 # If your version of "make" does not define $(MAKE), comment in the
 # definition of "MAKE" below.  (You only need to do this if you intend
@@ -82,7 +82,7 @@ DIST_NAME = flex
 
 # which "flex" to use to generate scan.c from scan.l
 FLEX = ./flex
-FLEX_FLAGS = -ist -oscan.c $(PERF_REPORT)
+FLEX_FLAGS = -t $(PERF_REPORT)
 COMPRESSION =
 PERF_REPORT = -p
 
