@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.9 1990/08/02 00:31:02 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.10 1990/08/03 14:09:52 vern Exp $ (LBL) */
 
 #ifndef FILE
 #include <stdio.h>
@@ -93,7 +93,8 @@ char *memset();
 #ifdef __STDC__
 
 #ifdef __GNUC__
-void *malloc( unsigned );
+#include <stddef.h>
+void *malloc( size_t );
 void free( void* );
 #else
 #include <stdlib.h>
