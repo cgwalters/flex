@@ -1,4 +1,4 @@
-# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.21 1993/12/02 21:52:36 vern Exp $ (LBL)
+# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.22 1993/12/03 21:35:38 vern Exp $ (LBL)
 
 # If your version of "make" does not define $(MAKE), comment in the
 # definition of "MAKE" below.  (You only need to do this if you intend
@@ -29,8 +29,9 @@ LIBS = @LIBS@
 # nroff preformatted versions will be installed if INSTALLMAN=cat.
 
 prefix = /usr/local
-bindir = $(prefix)/bin
-libdir = $(prefix)/lib
+exec_prefix = $(prefix)
+bindir = $(exec_prefix)/bin
+libdir = $(exec_prefix)/lib
 includedir = $(prefix)/include
 manext = 1
 mandir = $(prefix)/man/man$(manext)
