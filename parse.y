@@ -30,7 +30,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/parse.y,v 2.22 1994/11/05 17:09:27 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/parse.y,v 2.23 1994/11/24 16:43:31 vern Exp $ */
 
 
 /* Some versions of bison are broken in that they use alloca() but don't
@@ -51,7 +51,11 @@
 #ifdef __hpux
 void *alloca ();
 #else /* not __hpux */
+#ifdef __TURBOC__
+#include <malloc.h>
+#else
 char *alloca ();
+#endif /* not __TURBOC__ */
 #endif /* not __hpux */
 #endif /* not _AIX */
 #endif /* not HAVE_ALLOCA_H */
@@ -68,11 +72,6 @@ int trlcontxt, xcluflg, cclsorted, varlength, variable_trail_rule;
 
 int *scon_stk;
 int scon_stk_ptr;
-
-Char clower();
-char *copy_string();
-void build_eof_action();
-void yyerror();
 
 static int madeany = false;  /* whether we've made the '.' character class */
 int previous_continued_action;	/* whether the previous rule's action was '|' */

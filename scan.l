@@ -27,7 +27,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/scan.l,v 2.41 1994/11/24 15:47:15 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/scan.l,v 2.42 1994/11/24 16:43:34 vern Exp $ */
 
 #include "flexdef.h"
 #include "parse.h"
@@ -379,7 +379,7 @@ LEXOPT		[aceknopr]
 			/* Check to see if we've already encountered this
 			 * ccl.
 			 */
-			if ( (cclval = ccllookup( (Char *) nmstr )) )
+			if ( (cclval = ccllookup( (Char *) nmstr )) != 0 )
 				{
 				if ( input() != ']' )
 					synerr( "bad character class" );
@@ -412,7 +412,7 @@ LEXOPT		[aceknopr]
 			strcpy( nmstr, yytext + 1 );
 			nmstr[yyleng - 2] = '\0';  /* chop trailing brace */
 
-			if ( ! (nmdefptr = ndlookup( nmstr )) )
+			if ( (nmdefptr = ndlookup( nmstr )) == 0 )
 				format_synerr( "undefined definition {%s}",
 						nmstr );
 

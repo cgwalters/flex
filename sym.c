@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/sym.c,v 2.16 1993/12/27 14:40:19 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/sym.c,v 2.17 1994/11/24 16:43:35 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -77,7 +77,7 @@ int table_size;
 	if ( new_entry == NULL )
 		flexfatal( "symbol table memory allocation failed" );
 
-	if ( (successor = table[hash_val]) )
+	if ( (successor = table[hash_val]) != 0 )
 		{
 		new_entry->next = successor;
 		successor->prev = new_entry;
