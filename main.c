@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.48 1995/01/10 10:42:17 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.49 1995/01/11 10:53:23 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -572,7 +572,10 @@ char **argv;
 	defs1_offset = prolog_offset = action_offset = action_index = 0;
 	action_array[0] = '\0';
 
-	program_name = argv[0];
+	if ( argv[0] && argv[0][0] != '\0' )
+		program_name = argv[0];
+	else
+		program_name = "flex"; 
 
 	if ( program_name[0] != '\0' &&
 	     program_name[strlen( program_name ) - 1] == '+' )
