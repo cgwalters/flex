@@ -31,7 +31,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/yylex.c,v 2.1 1990/01/16 10:29:10 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/yylex.c,v 2.2 1990/03/14 13:41:56 vern Exp $ (LBL)";
 
 #endif
 
@@ -192,6 +192,10 @@ int yylex()
 
 	    case PREVCCL:
 		fprintf( stderr, "[%d]", yylval );
+		break;
+
+	    case EOF_OP:
+		fprintf( stderr, "<<EOF>>" );
 		break;
 
 	    case 0:
