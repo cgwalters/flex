@@ -1,4 +1,4 @@
-# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.4 1993/11/27 13:59:07 vern Exp $ (LBL)
+# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.5 1993/11/27 14:02:34 vern Exp $ (LBL)
 
 # If your version of "make" does not define $(MAKE), comment in the
 # definition of "MAKE" below.  (You only need to do this if you intend
@@ -215,10 +215,10 @@ dist: $(DISTFILES)
 
 dist2:
 	@rm -rf $(DIST_NAME)
+	@rm -f $(DIST_NAME).tar $(DIST_NAME).tar.Z $(DIST_NAME).tar.gz
 	@mkdir $(DIST_NAME)
 	tar cf - $(DISTFILES) | (cd $(DIST_NAME); tar xfB -)
 	@mv $(DIST_NAME)/scan.c $(DIST_NAME)/initscan.c
-	@rm -f flex.tar flex.tar.Z flex.tar.gz
 	tar chf $(DIST_NAME).tar $(DIST_NAME)
 	$(COMPRESS) $(DIST_NAME).tar
 	@rm -rf $(DIST_NAME)
