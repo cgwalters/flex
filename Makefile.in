@@ -1,4 +1,4 @@
-# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.29 1993/12/27 14:57:12 vern Exp $ (LBL)
+# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.30 1993/12/29 17:09:02 vern Exp $ (LBL)
 
 # If your version of "make" does not define $(MAKE), comment in the
 # definition of "MAKE" below.  (You only need to do this if you intend
@@ -108,9 +108,9 @@ parse.c: parse.y
 parse.h: parse.c
 
 scan.c: scan.l
-	$(FLEX) $(FLEX_FLAGS) $(COMPRESSION) $(srcdir)/scan.l \
-	| sed s,\"$(srcdir)/scan.l\",\"scan.l\", >scan.tmp
-	mv scan.tmp scan.c
+	$(FLEX) $(FLEX_FLAGS) $(COMPRESSION) $(srcdir)/scan.l >scan.tmp
+	sed s,\"$(srcdir)/scan.l\",\"scan.l\", <scan.tmp >scan.c
+	@rm scan.tmp
 
 scan.o: scan.c parse.h flexdef.h
 yylex.o: yylex.c parse.h flexdef.h
