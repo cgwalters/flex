@@ -31,13 +31,20 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/yylex.c,v 2.3 1990/03/20 11:36:54 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/yylex.c,v 2.4 1990/05/26 16:54:45 vern Exp $ (LBL)";
 
 #endif
 
 #include <ctype.h>
 #include "flexdef.h"
 #include "parse.h"
+
+
+/* ANSI C does not guarantee that isascii() is defined */
+#ifndef isascii
+#define isascii(c) ((c) <= 0177)
+#endif
+
 
 /* yylex - scan for a regular expression token
  *
