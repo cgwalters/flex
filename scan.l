@@ -27,7 +27,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/scan.l,v 2.55 1995/04/20 11:35:12 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/scan.l,v 2.56 1995/04/24 12:17:19 vern Exp $ */
 
 #include "flexdef.h"
 #include "parse.h"
@@ -159,7 +159,7 @@ LEXOPT		[aceknopr]
 	[[:digit:]]+	linenum = myctoi( yytext );
 
 	\"[^"\n]*\"	{
-			flex_free( infilename );
+			flex_free( (void *) infilename );
 			infilename = copy_string( yytext + 1 );
 			infilename[strlen( infilename ) - 1] = '\0';
 			}
