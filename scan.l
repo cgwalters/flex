@@ -27,7 +27,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/scan.l,v 2.30 1993/12/16 20:44:22 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/scan.l,v 2.31 1993/12/17 10:04:12 vern Exp $ */
 
 #include "flexdef.h"
 #include "parse.h"
@@ -531,4 +531,26 @@ char *file;
 		yyin = stdin;
 		infilename = "<stdin>";
 		}
+	}
+
+
+/* Wrapper routines for accessing the scanner's malloc routines. */
+
+void *flex_alloc( size )
+unsigned int size;
+	{
+	return yy_flex_alloc( size );
+	}
+
+void *flex_realloc( ptr, size )
+void *ptr;
+unsigned int size;
+	{
+	return yy_flex_realloc( ptr, size );
+	}
+
+void flex_free( ptr )
+void *ptr;
+	{
+	yy_flex_free( ptr );
 	}
