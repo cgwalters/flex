@@ -1,4 +1,4 @@
-# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.34 1994/12/04 09:14:57 vern Exp $ (LBL)
+# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.35 1994/12/04 15:30:58 vern Exp $ (LBL)
 
 # If your version of "make" does not define $(MAKE), comment in the
 # definition of "MAKE" below.  (You only need to do this if you intend
@@ -234,7 +234,7 @@ dist2:
 	gzip <$(DIST_NAME).tar >$(DIST_NAME).tar.gz
 	@rm $(DIST_NAME).tar
 
-Makefile: Makefile.in config.status
+Makefile: $(srcdir)/Makefile.in config.status
 	$(SHELL) config.status
 config.status: configure
 	$(SHELL) config.status --recheck
