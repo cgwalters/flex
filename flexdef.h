@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.17 1993/09/16 20:38:58 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.18 1993/09/21 20:45:51 vern Exp $ (LBL) */
 
 #ifndef FILE
 #include <stdio.h>
@@ -64,9 +64,6 @@
 
 /* Maximum line length we'll have to deal with. */
 #define MAXLINE 2048
-
-/* Maximum size of file name. */
-#define FILENAMESIZE 1024
 
 #ifndef min
 #define min(x,y) ((x) < (y) ? (x) : (y))
