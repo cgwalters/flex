@@ -27,7 +27,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/scan.l,v 2.47 1994/12/10 22:24:10 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/scan.l,v 2.48 1994/12/28 11:55:51 vern Exp $ */
 
 #include "flexdef.h"
 #include "parse.h"
@@ -230,7 +230,7 @@ LEXOPT		[aceknopr]
 	lex-compat	lex_compat = option_sense;
 	main		{
 			action_define( "YY_MAIN", option_sense );
-			do_yywrap = option_sense;
+			do_yywrap = ! option_sense;
 			}
 	meta-ecs	usemecs = option_sense;
 	never-interactive	{
