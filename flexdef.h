@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.43 1994/11/24 16:43:26 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.44 1994/12/03 13:44:28 vern Exp $ (LBL) */
 
 #include <stdio.h>
 #include <ctype.h>
@@ -61,7 +61,7 @@
 #include <malloc.h>
 #endif
 
-#if __STDC__
+#ifdef STDC_HEADERS
 #include <stdlib.h>
 #endif
 
