@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.31 1993/11/29 17:13:43 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.32 1993/11/30 13:00:58 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -334,7 +334,7 @@ int exit_status;
 				num_backing_up );
 		else
 			fprintf( stderr,
-				"  compressed tables always back-up\n" );
+				"  Compressed tables always back-up\n" );
 
 		if ( bol_needed )
 			fprintf( stderr,
