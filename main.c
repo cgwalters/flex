@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.62 1995/04/20 12:43:25 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.63 1995/04/20 13:53:23 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -988,7 +988,7 @@ _( "Variable trailing context rules entail a large performance penalty\n" ) );
 		}
 
 	if ( fullspd )
-		outn( "typedef const struct yy_trans_info *yy_state_type;" );
+		outn( "typedef yyconst struct yy_trans_info *yy_state_type;" );
 	else if ( ! C_plus_plus )
 		outn( "typedef int yy_state_type;" );
 
