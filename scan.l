@@ -27,7 +27,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/scan.l,v 2.19 1993/09/21 20:42:48 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/scan.l,v 2.20 1993/10/02 13:36:08 vern Exp $ */
 
 #include "flexdef.h"
 #include "parse.h"
@@ -64,9 +64,9 @@
 %x FIRSTCCL CCL ACTION RECOVER BRACEERROR C_COMMENT ACTION_COMMENT
 %x ACTION_STRING PERCENT_BRACE_ACTION USED_LIST CODEBLOCK_2
 
-WS		[ \t\f]+
-OPTWS		[ \t\f]*
-NOT_WS		[^ \t\f\n]
+WS		[ \t]+
+OPTWS		[ \t]*
+NOT_WS		[^ \t\n]
 
 NL		\n|\r\n|\n\r
 
