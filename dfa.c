@@ -28,7 +28,7 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/dfa.c,v 2.12 1993/08/24 20:37:11 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/dfa.c,v 2.13 1993/08/25 16:40:03 vern Exp $ (LBL)";
 #endif
 
 #include "flexdef.h"
@@ -532,7 +532,7 @@ void ntod()
 		/* Declare it "short" because it's a real long-shot that that
 		 * won't be large enough.
 		 */
-		printf( "static short int yy_nxt[][%d] =\n    {\n",
+		printf( "static const short yy_nxt[][%d] =\n    {\n",
 			/* '}' so vi doesn't get too confused */
 			num_full_table_rows );
 
