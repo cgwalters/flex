@@ -28,7 +28,7 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/sym.c,v 2.6 1993/04/14 22:42:02 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/sym.c,v 2.7 1993/06/12 13:42:18 vern Exp $ (LBL)";
 #endif
 
 #include "flexdef.h"
@@ -74,7 +74,8 @@ int table_size;
 		}
 
 	/* create new entry */
-	new_entry = (struct hash_entry *) malloc( sizeof( struct hash_entry ) );
+	new_entry = (struct hash_entry *)
+		yy_flex_alloc( sizeof( struct hash_entry ) );
 
 	if ( new_entry == NULL )
 		flexfatal( "symbol table memory allocation failed" );
