@@ -29,7 +29,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/parse.y,v 2.11 1993/09/16 20:33:25 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/parse.y,v 2.12 1993/09/21 20:42:18 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -42,6 +42,14 @@ void yyerror();
 
 static int madeany = false;  /* whether we've made the '.' character class */
 int previous_continued_action;	/* whether the previous rule's action was '|' */
+
+/* On some over-ambitious machines, such as DEC Alpha's, the default
+ * token type is "long" instead of "int"; this leads to problems with
+ * declaring yylval in flexdef.h.  But so far, all the yacc's I've seen
+ * wrap their definitions of YYSTYPE with "#ifndef YYSTYPE"'s, so the
+ * following should ensure that the default token type is "int".
+ */
+#define YYSTYPE int
 
 %}
 
