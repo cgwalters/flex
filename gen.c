@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/gen.c,v 2.27 1993/11/29 17:13:35 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/gen.c,v 2.28 1993/11/30 13:01:40 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -920,7 +920,7 @@ void gentabs()
 
 	total_states = lastdfa + numtemps;
 
-	printf( (total_states >= MAX_SHORT || long_align) ?
+	printf( (tblend >= MAX_SHORT || long_align) ?
 			C_long_decl : C_short_decl,
 		"yy_base", total_states + 1 );
 
@@ -964,7 +964,7 @@ void gentabs()
 
 	dataend();
 
-	printf( (tblend >= MAX_SHORT || long_align) ?
+	printf( (total_states >= MAX_SHORT || long_align) ?
 			C_long_decl : C_short_decl,
 		"yy_nxt", tblend + 1 );
 
@@ -978,7 +978,7 @@ void gentabs()
 
 	dataend();
 
-	printf( (tblend >= MAX_SHORT || long_align) ?
+	printf( (total_states >= MAX_SHORT || long_align) ?
 			C_long_decl : C_short_decl,
 		"yy_chk", tblend + 1 );
 
