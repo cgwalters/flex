@@ -1,4 +1,4 @@
-// $Header: /cvsroot/flex/flex/FlexLexer.h,v 1.16 1995/03/20 14:02:36 vern Exp $
+// $Header: /cvsroot/flex/flex/FlexLexer.h,v 1.17 1995/04/20 12:43:07 vern Exp $
 
 // FlexLexer.h -- define interfaces for lexical analyzer classes generated
 //		  by flex
@@ -67,7 +67,7 @@ public:
 	virtual int yylex() = 0;
 
 	// Call yylex with new input/output sources.
-	int yylex( istream* new_in = 0, ostream* new_out = 0 )
+	int yylex( istream* new_in, ostream* new_out = 0 )
 		{
 		switch_streams( new_in, new_out );
 		return yylex();
