@@ -29,7 +29,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/parse.y,v 2.12 1993/09/21 20:42:18 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/parse.y,v 2.13 1993/11/26 15:08:53 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -311,7 +311,7 @@ rule		:  re2 re
 				headcnt = 0;
 				}
 
-			if ( varlength && headcnt == 0 )
+			if ( lex_compat || (varlength && headcnt == 0) )
 				{ /* variable trailing context rule */
 				/* Mark the first part of the rule as the
 				 * accepting "head" part of a trailing
@@ -359,7 +359,7 @@ rule		:  re2 re
 				headcnt = 0;
 				}
 
-			if ( varlength && headcnt == 0 )
+			if ( lex_compat || (varlength && headcnt == 0) )
 				{
 				/* Again, see the comment in the rule for
 				 * "re2 re" above.
@@ -391,7 +391,7 @@ rule		:  re2 re
 
 			if ( trlcontxt )
 				{
-				if ( varlength && headcnt == 0 )
+				if ( lex_compat || (varlength && headcnt == 0) )
 					/* Both head and trail are
 					 * variable-length.
 					 */
