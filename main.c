@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.27 1993/11/26 15:08:51 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.28 1993/11/26 16:09:59 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -817,7 +817,12 @@ void readin()
 		puts( "typedef char YY_CHAR;" );
 
 	if ( C_plus_plus )
+		{
 		puts( "#define yytext_ptr yytext" );
+
+		if ( interactive )
+			puts( "#define YY_INTERACTIVE" );
+		}
 
 	if ( fullspd )
 		printf(
