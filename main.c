@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.59 1995/03/20 14:01:43 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.60 1995/03/21 13:44:34 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -324,6 +324,9 @@ void check_options()
 			GEN_PREFIX( "out" );
 			GEN_PREFIX( "restart" );
 			GEN_PREFIX( "text" );
+
+			if ( do_yylineno )
+				GEN_PREFIX( "lineno" );
 			}
 
 		if ( do_yywrap )
