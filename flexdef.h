@@ -26,13 +26,19 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.46 1995/01/09 12:11:39 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.47 1995/01/09 12:41:12 vern Exp $ (LBL) */
 
 #include <stdio.h>
 #include <ctype.h>
 
 #include "config.h"
 
+#ifndef __TURBOC__
+/* Some C preprocessors barf when they see the following #pragma's,
+ * even though __TURBOC__ isn't defined so they should just skip them.
+ * So we comment them out by leaving this comment
+ open
+#endif
 #ifdef __TURBOC__
 #define HAVE_STRING_H 1
 #define MS_DOS 1
@@ -45,6 +51,9 @@
 #pragma warn -aus
 #pragma warn -par
 #pragma warn -pia
+#endif
+#ifndef __TURBOC__
+ close open comment above */
 #endif
 
 #ifdef HAVE_STRING_H
