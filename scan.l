@@ -27,7 +27,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/scan.l,v 2.43 1994/12/03 11:26:05 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/scan.l,v 2.44 1994/12/04 08:28:23 vern Exp $ */
 
 #include "flexdef.h"
 #include "parse.h"
@@ -75,7 +75,7 @@ WS		[ \t]+
 OPTWS		[ \t]*
 NOT_WS		[^ \t\n]
 
-NL		(\n|\r\n|\n\r)
+NL		\r?\n
 
 NAME		([a-z_][a-z_0-9-]*)
 NOT_NAME	[^a-z_*\n]+
