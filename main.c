@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.23 1993/10/03 16:01:41 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.24 1993/10/10 14:52:55 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -621,7 +621,7 @@ char **argv;
 
 	if ( ! csize_given )
 		{
-		if ( fulltbl || fullspd )
+		if ( (fulltbl || fullspd) && ! useecs )
 			csize = DEFAULT_CSIZE;
 		else
 			csize = CSIZE;
