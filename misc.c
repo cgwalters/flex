@@ -26,16 +26,9 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/misc.c,v 2.44 1995/03/04 16:11:59 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/misc.c,v 2.45 1995/04/20 11:17:21 vern Exp $ */
 
 #include "flexdef.h"
-
-
-
-/* declare functions that have forward references */
-
-void dataflush PROTO((void));
-int otoi PROTO((Char []));
 
 
 void action_define( defname, value )
