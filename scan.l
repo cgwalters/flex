@@ -27,7 +27,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/scan.l,v 2.56 1995/04/24 12:17:19 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/scan.l,v 2.57 2000/08/21 16:38:43 vern Exp $ */
 
 #include "flexdef.h"
 #include "parse.h"
@@ -619,7 +619,7 @@ LEXOPT		[aceknopr]
 <ACTION_STRING>{
 	[^"\\\n]+	ACTION_ECHO;
 	\\.		ACTION_ECHO;
-	{NL}		++linenum; ACTION_ECHO;
+	{NL}		++linenum; ACTION_ECHO; BEGIN(ACTION);
 	\"		ACTION_ECHO; BEGIN(ACTION);
 	.		ACTION_ECHO;
 }
