@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/yylex.c,v 2.10 1993/09/16 20:31:48 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/yylex.c,v 2.11 1993/12/17 10:03:44 vern Exp $ */
 
 #include <ctype.h>
 #include "flexdef.h"
@@ -107,10 +107,6 @@ int yylex()
 
 			case XSCDECL:
 				fputs( "%x", stderr );
-				break;
-
-			case WHITESPACE:
-				(void) putc( ' ', stderr );
 				break;
 
 			case SECTEND:
