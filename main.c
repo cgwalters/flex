@@ -32,7 +32,7 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.53 1995/03/04 16:12:34 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/main.c,v 2.54 1995/03/04 16:14:30 vern Exp $ */
 
 
 #include "flexdef.h"
@@ -555,11 +555,7 @@ _( "  %d/%d character classes needed %d/%d words of storage, %d reused\n" ),
 			tblsiz );
 		}
 
-#ifndef VMS
 	exit( exit_status );
-#else
-	exit( exit_status + 1 );
-#endif
 	}
 
 
