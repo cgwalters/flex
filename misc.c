@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/misc.c,v 2.29 1993/12/11 14:40:49 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/misc.c,v 2.30 1993/12/11 17:06:42 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -41,7 +41,7 @@ int otoi PROTO((Char []));
 void add_action( new_text )
 char *new_text;
 	{
-	int len = yy_strlen( new_text );
+	int len = strlen( new_text );
 
 	while ( len + action_index >= action_size - 10 /* slop */ )
 		{
@@ -50,7 +50,7 @@ char *new_text;
 			reallocate_character_array( action_array, action_size );
 		}
 
-	yy_strcpy( &action_array[action_index], new_text );
+	strcpy( &action_array[action_index], new_text );
 
 	action_index += len;
 	}
