@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/gen.c,v 2.54 1995/04/20 11:17:08 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/gen.c,v 2.55 1995/12/18 14:20:41 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -713,12 +713,20 @@ void gen_NUL_trans()
 		(void) sprintf( NUL_ec_str, "%d", NUL_ec );
 		gen_next_compressed_state( NUL_ec_str );
 
-		if ( reject )
-			indent_puts( "*yy_state_ptr++ = yy_current_state;" );
-
 		do_indent();
-
 		out_dec( "yy_is_jam = (yy_current_state == %d);\n", jamstate );
+
+		if ( reject )
+			{
+			/* Only stack this state if it's a transition we
+			 * actually make.  If we stack it on a jam, then
+			 * the state stack and yy_c_buf_p get out of sync.
+			 */
+			indent_puts( "if ( ! yy_is_jam )" );
+			indent_up();
+			indent_puts( "*yy_state_ptr++ = yy_current_state;" );
+			indent_down();
+			}
 		}
 
 	/* If we've entered an accepting state, back up; note that
