@@ -1,4 +1,3 @@
-// $Header: /cvsroot/flex/flex/FlexLexer.h,v 1.20 1997/06/23 19:48:11 vern Exp $
 
 // FlexLexer.h -- define interfaces for lexical analyzer classes generated
 //		  by flex

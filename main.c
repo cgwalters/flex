@@ -32,9 +32,6 @@ char copyright[] =
  All rights reserved.\n";
 #endif /* not lint */
 
-/* $Header: /cvsroot/flex/flex/main.c,v 2.64 1996/05/25 20:42:42 vern Exp $ */
-
-
 #include "flexdef.h"
 #include "version.h"
 

@@ -27,8 +27,6 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/scan.l,v 2.57 2000/08/21 16:38:43 vern Exp $ */
-
 #include "flexdef.h"
 #include "parse.h"
 

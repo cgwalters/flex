@@ -26,8 +26,6 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/misc.c,v 2.47 1995/04/28 11:39:39 vern Exp $ */
-
 #include "flexdef.h"
 
 

@@ -26,8 +26,6 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/sym.c,v 2.20 2000/08/21 16:38:13 vern Exp $ */
-
 #include "flexdef.h"
 
 /* Variables for symbol tables:

@@ -33,9 +33,6 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/parse.y,v 2.28 1995/04/21 11:51:51 vern Exp $ */
-
-
 /* Some versions of bison are broken in that they use alloca() but don't
  * declare it properly.  The following is the patented (just kidding!)
  * #ifdef chud to fix the problem, courtesy of Francois Pinard.

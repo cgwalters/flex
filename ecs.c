@@ -26,8 +26,6 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/ecs.c,v 2.9 1993/12/07 10:18:20 vern Exp $ */
-
 #include "flexdef.h"
 
 /* ccl2ecl - convert character classes to set of equivalence classes */

@@ -26,8 +26,6 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/ccl.c,v 2.9 1993/09/16 20:32:14 vern Exp $ */
-
 #include "flexdef.h"
 
 /* ccladd - add a single character to a ccl */
