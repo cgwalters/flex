@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/misc.c,v 2.35 1993/12/26 15:03:14 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/misc.c,v 2.36 1993/12/27 14:40:05 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -36,6 +36,24 @@
 
 void dataflush PROTO((void));
 int otoi PROTO((Char []));
+
+
+void action_define( defname, value )
+char *defname;
+int value;
+	{
+	char buf[MAXLINE];
+
+	if ( strlen( defname ) > MAXLINE / 2 )
+		{
+		format_pinpoint_message( "name \"%s\" ridiculously long", 
+			defname );
+		return;
+		}
+
+	sprintf( buf, "#define %s %d\n", defname, value );
+	add_action( buf );
+	}
 
 
 void add_action( new_text )
@@ -149,7 +167,7 @@ int c;
 			readable_form( c ) );
 
 	if ( c >= csize )
-		lerrsf( "scanner requires -8 flag to use the character '%s'",
+		lerrsf( "scanner requires -8 flag to use the character %s",
 			readable_form( c ) );
 	}
 
