@@ -1,4 +1,4 @@
-# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.31 1994/11/05 17:13:01 vern Exp $ (LBL)
+# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.32 1994/11/24 16:50:23 vern Exp $ (LBL)
 
 # If your version of "make" does not define $(MAKE), comment in the
 # definition of "MAKE" below.  (You only need to do this if you intend
@@ -15,7 +15,7 @@
 # For MS-DOS, add "-DMS_DOS" to DEFS.  See the directory MISC/MSDOS for
 # additional info.
 
-CFLAGS = -O
+CFLAGS = @CFLAGS@
 DEFS = @DEFS@
 LDFLAGS = 
 LIBS = @LIBS@
