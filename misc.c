@@ -31,7 +31,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/misc.c,v 2.2 1990/01/16 10:39:51 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/misc.c,v 2.3 1990/03/14 13:41:07 vern Exp $ (LBL)";
 
 #endif
 
@@ -609,12 +609,6 @@ Char array[];
 		esc_char = otoi( array + 1 );
 
 	    array[sptr] = c;
-
-	    if ( esc_char == '\0' )
-		{
-		synerr( "escape sequence for null not allowed" );
-		return ( 1 );
-		}
 
 	    return ( esc_char );
 	    }

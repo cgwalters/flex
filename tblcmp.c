@@ -31,7 +31,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/tblcmp.c,v 2.1 1990/01/15 17:47:34 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/tblcmp.c,v 2.2 1990/03/14 13:41:47 vern Exp $ (LBL)";
 
 #endif
 
@@ -233,7 +233,7 @@ cmptmps()
 	 * transitions
 	 */
 
-	nummecs = cre8ecs( tecfwd, tecbck, numecs );
+	nummecs = cre8ecs( tecfwd, tecbck, numecs, 1 );
 	}
     
     else

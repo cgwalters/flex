@@ -34,7 +34,7 @@ static char copyright[] =
 static char CR_continuation[] = "@(#) All rights reserved.\n";
 
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/scan.l,v 2.2 1990/01/15 18:02:29 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/scan.l,v 2.3 1990/03/14 13:41:31 vern Exp $ (LBL)";
 #endif
 
 #define ACTION_ECHO fprintf( temp_action_file, "%s", yytext )
@@ -135,14 +135,14 @@ ESCSEQ		\\([^\n]|[0-9]{1,3}|x[0-9a-f]{1,2})
 			char *malloc();
 
 			++linenum;
-			xlation = (int *) malloc( sizeof( int ) * (csize + 1) );
-
-			for ( i = 1; i <= csize; ++i )
-			    xlation[i] = 0;
+			xlation = (int *) malloc( sizeof( int ) * csize );
 
 			if ( ! xlation )
 			    flexfatal(
 				"dynamic memory failure building %t table" );
+
+			for ( i = 0; i < csize; ++i )
+			    xlation[i] = 0;
 
 			num_xlations = 0;
 
