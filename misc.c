@@ -28,7 +28,7 @@
 
 #ifndef lint
 static char rcsid[] =
-    "@(#) $Header: /cvsroot/flex/flex/misc.c,v 2.8 1990/08/14 00:01:35 vern Exp $ (LBL)";
+    "@(#) $Header: /cvsroot/flex/flex/misc.c,v 2.9 1990/08/14 00:10:24 vern Exp $ (LBL)";
 #endif
 
 #include <ctype.h>
@@ -665,7 +665,7 @@ Char array[];
 
 	    while ( isascii( array[sptr] ) && is_hex_digit( array[sptr] ) )
 		/* don't increment inside loop control because if
-		 * isdigit() is a macro it will expand it to two
+		 * isdigit() is a macro it might expand into multiple
 		 * increments ...
 		 */
 		++sptr;
