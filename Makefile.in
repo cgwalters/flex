@@ -1,4 +1,4 @@
-# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.15 1993/11/29 17:18:19 vern Exp $ (LBL)
+# @(#) $Header: /cvsroot/flex/flex/Attic/Makefile.in,v 1.16 1993/11/29 21:35:04 vern Exp $ (LBL)
 
 # If your version of "make" does not define $(MAKE), comment in the
 # definition of "MAKE" below.  (You only need to do this if you intend
@@ -109,7 +109,8 @@ parse.h: parse.c
 
 scan.c: scan.l
 	$(FLEX) $(FLEX_FLAGS) $(COMPRESSION) $(srcdir)/scan.l \
-	| sed s,\"$(srcdir)/scan.l\",\"scan.l\", >scan.c
+	| sed s,\"$(srcdir)/scan.l\",\"scan.l\", >scan.tmp
+	mv scan.tmp scan.c
 
 scan.o: scan.c parse.h flexdef.h
 
@@ -194,7 +195,7 @@ gcc-lint: $(LINTSRCS)
 	gcc -Dlint -Wall $(LINTSRCS) >flex.gcc-lint 2>&1
 
 mostlyclean:
-	rm -f *~ *.bak core errs
+	rm -f *~ *.bak core errs scan.tmp
 
 clean: mostlyclean
 	rm -f parse.c parse.h *.o *.lint lex.yy.c $(FLEXLIB)
