@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/gen.c,v 2.29 1993/12/02 21:52:00 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/gen.c,v 2.30 1993/12/03 21:59:54 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -1255,7 +1255,7 @@ void make_tables()
 			printf(
 			"\tif ( yy_current_buffer->is_interactive ) \\\n" );
 			printf(
-		"\t\tresult = (buf[0] = getc( yyin )) == EOF ? 0 : 1; \\\n" );
+"\t\tresult = ((int) (buf[0] = getc( yyin ))) == EOF ? 0 : 1; \\\n" );
 			printf(
 "\telse if ( ((result = fread( (char *) buf, 1, max_size, yyin )) == 0)\\\n" );
 			printf( "\t\t  && ferror( yyin ) ) \\\n" );

@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* $Header: /cvsroot/flex/flex/misc.c,v 2.27 1993/12/02 21:52:17 vern Exp $ */
+/* $Header: /cvsroot/flex/flex/misc.c,v 2.28 1993/12/03 21:59:57 vern Exp $ */
 
 #include "flexdef.h"
 
@@ -501,7 +501,6 @@ Char myesc( array )
 Char array[];
 	{
 	Char c, esc_char;
-	register int sptr;
 
 	switch ( array[1] )
 		{
@@ -530,7 +529,7 @@ Char array[];
 		case '8':
 		case '9':
 			{ /* \<octal> */
-			sptr = 1;
+			int sptr = 1;
 
 			while ( isascii( array[sptr] ) &&
 				isdigit( array[sptr] ) )

@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.29 1993/12/02 21:52:20 vern Exp $ (LBL) */
+/* @(#) $Header: /cvsroot/flex/flex/flexdef.h,v 2.30 1993/12/03 21:59:50 vern Exp $ (LBL) */
 
 #include <stdio.h>
 #include <ctype.h>
@@ -548,7 +548,7 @@ extern char **scname;
 
 extern int current_max_dfa_size, current_max_xpairs;
 extern int current_max_template_xpairs, current_max_dfas;
-extern int lastdfa, lasttemp, *nxt, *chk, *tnxt;
+extern int lastdfa, *nxt, *chk, *tnxt;
 extern int *base, *def, *nultrans, NUL_ec, tblend, firstfree, **dss, *dfasiz;
 extern union dfaacc_union
 	{
